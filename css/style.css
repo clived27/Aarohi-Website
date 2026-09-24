@@ -1,0 +1,381 @@
+/* =========================================================
+   AAROHI 26 — Stylesheet
+   Palette pulled from the fest key art (Vice-City sunset):
+   Sky lavender #C9D2F2, dusk purple #8672B8, twilight pink #F0879C,
+   sunset orange #F5A55C, glow gold #FFD27A, ink #241B3A
+   ========================================================= */
+
+:root {
+  --lavender: #cdd6f4;
+  --periwinkle: #a9b6ea;
+  --purple: #7d68ad;
+  --purple-deep: #5b4a86;
+  --pink: #ef8b9e;
+  --orange: #f3a35c;
+  --gold: #ffd27a;
+  --ink: #2a2043;
+  --cream: #fff8ee;
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--lavender);
+  border-bottom: 1px solid rgba(42, 32, 67, 0.12);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple-deep);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--purple-deep);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--purple-deep);
+  border-radius: 2px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 60px 24px 90px;
+  background: linear-gradient(
+    180deg,
+    var(--lavender) 0%,
+    var(--periwinkle) 18%,
+    var(--purple) 42%,
+    var(--pink) 66%,
+    var(--orange) 86%,
+    var(--gold) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 720px;
+}
+
+.logo {
+  width: min(680px, 92vw);
+  filter: drop-shadow(0 18px 30px rgba(42, 32, 67, 0.35));
+}
+
+.cta-btn {
+  margin-top: 34px;
+  padding: 14px 38px;
+  border: 2px solid var(--cream);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--cream);
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: var(--cream);
+  color: var(--purple-deep);
+  transform: translateY(-2px);
+}
+
+.tagline {
+  margin-top: 28px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  color: var(--purple-deep);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.dates {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  color: var(--ink);
+}
+
+.dates a {
+  font-weight: 700;
+  color: var(--purple-deep);
+  border-bottom: 2px solid var(--purple-deep);
+}
+
+.dot {
+  margin: 0 10px;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   HERO DECORATION — skyline, palms, floating icons
+   ========================================================= */
+
+.skyline {
+  position: absolute;
+  bottom: 0;
+  width: 30%;
+  min-width: 260px;
+  height: 34%;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  opacity: 0.22;
+  z-index: 1;
+  background-image:
+    linear-gradient(var(--cream), var(--cream));
+  clip-path: polygon(
+    0% 100%, 0% 70%, 4% 70%, 4% 55%, 9% 55%, 9% 40%, 14% 40%, 14% 60%,
+    19% 60%, 19% 30%, 24% 30%, 24% 50%, 29% 50%, 29% 20%, 34% 20%, 34% 45%,
+    39% 45%, 39% 65%, 44% 65%, 44% 35%, 49% 35%, 49% 55%, 54% 55%, 54% 25%,
+    59% 25%, 59% 48%, 64% 48%, 64% 60%, 69% 60%, 69% 40%, 74% 40%, 74% 58%,
+    79% 58%, 79% 30%, 84% 30%, 84% 52%, 89% 52%, 89% 65%, 94% 65%, 94% 45%,
+    100% 45%, 100% 100%
+  );
+}
+
+.skyline-left { left: 0; }
+.skyline-right { right: 0; transform: scaleX(-1); }
+
+.palm {
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+  height: 70%;
+  z-index: 2;
+  opacity: 0.28;
+  background: var(--ink);
+  -webkit-mask: radial-gradient(circle at 30% 12%, rgba(0,0,0,0.9) 0 14%, transparent 15%) no-repeat,
+                linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
+  -webkit-mask-size: 100% 100%, 6px 100%;
+  -webkit-mask-position: 0 0, 30% 10%;
+  mask: radial-gradient(circle at 30% 12%, rgba(0,0,0,0.9) 0 14%, transparent 15%) no-repeat,
+        linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
+  mask-size: 100% 100%, 6px 100%;
+  mask-position: 0 0, 30% 10%;
+}
+
+.palm-left {
+  left: -20px;
+  clip-path: polygon(
+    46% 100%, 52% 30%,
+    52% 30%, 20% 8%, 10% 14%, 30% 22%, 44% 26%,
+    44% 26%, 8% 20%, 0% 32%, 26% 30%, 42% 30%,
+    42% 30%, 4% 40%, 2% 54%, 30% 38%, 44% 32%,
+    50% 22%, 62% 4%, 74% 10%, 56% 20%, 50% 26%,
+    50% 26%, 78% 12%, 92% 20%, 66% 24%, 52% 28%,
+    52% 28%, 82% 30%, 96% 42%, 68% 34%, 54% 30%,
+    56% 100%
+  );
+}
+
+.palm-right {
+  right: -20px;
+  clip-path: polygon(
+    46% 100%, 52% 30%,
+    52% 30%, 20% 8%, 10% 14%, 30% 22%, 44% 26%,
+    44% 26%, 8% 20%, 0% 32%, 26% 30%, 42% 30%,
+    42% 30%, 4% 40%, 2% 54%, 30% 38%, 44% 32%,
+    50% 22%, 62% 4%, 74% 10%, 56% 20%, 50% 26%,
+    50% 26%, 78% 12%, 92% 20%, 66% 24%, 52% 28%,
+    52% 28%, 82% 30%, 96% 42%, 68% 34%, 54% 30%,
+    56% 100%
+  );
+  transform: scaleX(-1);
+}
+
+.icon {
+  position: absolute;
+  z-index: 3;
+  color: var(--cream);
+  opacity: 0.55;
+  font-size: 2rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.icon-heart   { top: 20%; left: 26%; font-size: 1.8rem; color: var(--pink); }
+.icon-spade-1 { top: 16%; left: 32%; font-size: 1.5rem; }
+.icon-spade-2 { top: 24%; right: 24%; font-size: 1.6rem; }
+.icon-diamond { top: 30%; left: 20%; font-size: 1.5rem; color: var(--pink); }
+.icon-note-1  { top: 15%; left: 12%; font-size: 2.1rem; }
+.icon-note-2  { top: 40%; left: 8%;  font-size: 1.6rem; }
+.icon-note-3  { top: 18%; right: 10%; font-size: 2.3rem; }
+.icon-dice    { bottom: 16%; right: 18%; font-size: 2.4rem; }
+
+.icon-chip-1,
+.icon-chip-2 {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px dashed var(--gold);
+  opacity: 0.5;
+}
+.icon-chip-1 { top: 22%; right: 30%; }
+.icon-chip-2 { bottom: 20%; left: 22%; width: 26px; height: 26px; }
+
+/* =========================================================
+   ABOUT STRIP
+   ========================================================= */
+
+.about-strip {
+  padding: 80px 24px;
+  background: var(--cream);
+}
+
+.about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-inner h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--purple-deep);
+  margin-bottom: 18px;
+}
+
+.about-inner p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: rgba(42, 32, 67, 0.8);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 28px 24px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a { opacity: 0.8; transition: opacity 0.2s ease; }
+.footer-links a:hover { opacity: 1; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--lavender);
+    padding: 18px 24px;
+    gap: 18px;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+  .nav-inner { justify-content: flex-end; position: relative; }
+  .palm { width: 130px; opacity: 0.18; }
+  .icon { font-size: 1.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
