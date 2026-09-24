@@ -1,9 +1,11 @@
-/* =========================================================
+﻿/* =========================================================
    AAROHI 26 — Stylesheet
-   Palette pulled from the fest key art (Vice-City sunset):
+   Palette: Vice-City sunset + deep nightlife darks
    Sky lavender #C9D2F2, dusk purple #8672B8, twilight pink #F0879C,
    sunset orange #F5A55C, glow gold #FFD27A, ink #241B3A
    ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
   --lavender: #cdd6f4;
@@ -15,8 +17,20 @@
   --gold: #ffd27a;
   --ink: #2a2043;
   --cream: #fff8ee;
-  --font-display: 'Baloo 2', sans-serif;
-  --font-body: 'Poppins', sans-serif;
+
+  /* Nightlife navbar palette */
+  --nav-bg: #0d0618;            /* near-black deep violet */
+  --nav-border: #2e1a4a;        /* subtle purple border */
+  --nav-glow: #b06cff;          /* electric violet glow */
+  --nav-text: #e8d5ff;          /* soft lavender white */
+  --nav-hover: #ffd27a;         /* gold accent on hover */
+  --nav-active-bar: #b06cff;
+
+  /* Typography — The Revolution Layout + The Royal Layout */
+  --font-display: 'Rock Salt', cursive;        /* hero title */
+  --font-body: 'EB Garamond', serif;           /* standard body text */
+  --font-heading: 'Cinzel', serif;             /* H1 / H2 headers */
+  --font-prose: 'Lora', serif;                 /* body prose */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,7 +38,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-prose);
   color: var(--ink);
   background: var(--cream);
   overflow-x: hidden;
@@ -33,58 +47,123 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
+h1, h2 { font-family: var(--font-heading); }
+
 /* =========================================================
-   NAVBAR
+   NAVBAR — Nightlife theme
    ========================================================= */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--lavender);
-  border-bottom: 1px solid rgba(42, 32, 67, 0.12);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0 2px 24px rgba(176, 108, 255, 0.18);
 }
 
 .nav-inner {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 18px 24px;
+  justify-content: space-between;
+  padding: 10px 28px;
+  gap: 24px;
 }
 
+/* === Brand logo (leftmost) === */
+.nav-brand {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  /* BW logo on dark bg — invert makes it white/light */
+  filter: invert(1) brightness(1.15) drop-shadow(0 0 8px rgba(176,108,255,0.6));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.nav-logo:hover {
+  filter: invert(1) brightness(1.3) drop-shadow(0 0 14px rgba(255, 210, 122, 0.85));
+  transform: scale(1.05);
+}
+
+/* === Centre nav links === */
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 36px;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-links a {
-  font-family: var(--font-display);
+  font-family: 'Cinzel', serif;
   font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--orange);
-  letter-spacing: 0.02em;
-  transition: color 0.2s ease;
+  font-size: 0.88rem;
+  color: var(--nav-text);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
   position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--nav-glow);
+  transition: left 0.25s ease, right 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--purple-deep);
+  color: var(--nav-hover);
+  text-shadow: 0 0 12px rgba(255, 210, 122, 0.55);
 }
 
+.nav-links a:hover::after,
 .nav-links a.active::after {
-  content: '';
-  position: absolute;
   left: 0;
   right: 0;
-  bottom: -6px;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--purple-deep);
 }
 
+/* === BUY PASSES pill (rightmost) === */
+.nav-buy-passes {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 9px 26px;
+  border-radius: 999px;
+  border: 2px solid var(--nav-glow);
+  background: transparent;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--nav-glow);
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease,
+              box-shadow 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-buy-passes:hover {
+  background: var(--nav-glow);
+  color: var(--nav-bg);
+  box-shadow: 0 0 20px rgba(176, 108, 255, 0.65);
+  transform: translateY(-1px);
+}
+
+/* === Hamburger toggle === */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -98,7 +177,7 @@ ul { list-style: none; }
 .nav-toggle span {
   width: 26px;
   height: 3px;
-  background: var(--purple-deep);
+  background: var(--nav-text);
   border-radius: 2px;
 }
 
@@ -145,7 +224,7 @@ ul { list-style: none; }
   padding: 14px 38px;
   border: 2px solid var(--cream);
   border-radius: 999px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.05rem;
   color: var(--cream);
@@ -163,7 +242,7 @@ ul { list-style: none; }
 
 .tagline {
   margin-top: 28px;
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: clamp(1.05rem, 2vw, 1.4rem);
   color: var(--purple-deep);
@@ -172,7 +251,7 @@ ul { list-style: none; }
 
 .dates {
   margin-top: 14px;
-  font-family: var(--font-body);
+  font-family: var(--font-prose);
   font-weight: 500;
   font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   color: var(--ink);
@@ -227,11 +306,11 @@ ul { list-style: none; }
   opacity: 0.28;
   background: var(--ink);
   -webkit-mask: radial-gradient(circle at 30% 12%, rgba(0,0,0,0.9) 0 14%, transparent 15%) no-repeat,
-                linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
+               linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
   -webkit-mask-size: 100% 100%, 6px 100%;
   -webkit-mask-position: 0 0, 30% 10%;
   mask: radial-gradient(circle at 30% 12%, rgba(0,0,0,0.9) 0 14%, transparent 15%) no-repeat,
-        linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
+       linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) no-repeat;
   mask-size: 100% 100%, 6px 100%;
   mask-position: 0 0, 30% 10%;
 }
@@ -311,7 +390,7 @@ ul { list-style: none; }
 }
 
 .about-inner h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   color: var(--purple-deep);
@@ -319,8 +398,9 @@ ul { list-style: none; }
 }
 
 .about-inner p {
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-family: var(--font-prose);
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: rgba(42, 32, 67, 0.8);
 }
 
@@ -342,6 +422,7 @@ ul { list-style: none; }
   gap: 16px;
   align-items: center;
   justify-content: space-between;
+  font-family: var(--font-prose);
   font-size: 0.9rem;
 }
 
@@ -364,14 +445,16 @@ ul { list-style: none; }
     left: 0;
     right: 0;
     flex-direction: column;
-    background: var(--lavender);
-    padding: 18px 24px;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    padding: 18px 28px;
     gap: 18px;
     display: none;
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
-  .nav-inner { justify-content: flex-end; position: relative; }
+  .nav-inner { flex-wrap: wrap; }
+  .nav-buy-passes { order: 3; font-size: 0.72rem; padding: 7px 18px; }
   .palm { width: 130px; opacity: 0.18; }
   .icon { font-size: 1.3rem; }
 }
