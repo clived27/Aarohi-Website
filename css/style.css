@@ -462,3 +462,155 @@ h1, h2 { font-family: var(--font-heading); }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* =========================================================
+   EVENTS PAGE — GTA-inspired city night aesthetic
+   ========================================================= */
+
+body.events-body {
+  background:
+    linear-gradient(180deg, rgba(35, 19, 46, 0.88), rgba(17, 13, 29, 0.94)),
+    linear-gradient(135deg, #a35db3 0%, #593d78 28%, #f2a88a 52%, #e89a74 75%, #f7d9a7 100%);
+  color: var(--cream);
+}
+
+.events-page-shell {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(17, 10, 23, 0.42), rgba(17, 10, 23, 0.6)),
+    url('../assets/citynew.png') center/cover no-repeat fixed;
+}
+
+.events-hero {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 72px 24px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.24);
+  background:
+    linear-gradient(180deg, rgba(86, 38, 104, 0.24), rgba(21, 13, 31, 0.48)),
+    radial-gradient(circle at 50% 28%, rgba(255, 214, 123, 0.54), rgba(255, 214, 123, 0) 30%);
+}
+
+.events-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.events-hero .eyebrow {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #f7d9a7;
+  font-size: 0.78rem;
+  margin-bottom: 12px;
+}
+
+.events-hero h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  color: #fdf0e8;
+  text-shadow: 0 7px 30px rgba(31, 18, 45, 0.8);
+  margin: 0;
+}
+
+.events-hero .hero-subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+
+.events-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 42px 20px 80px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.event-card {
+  background: rgba(14, 9, 22, 0.66);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px rgba(17, 10, 23, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 210, 122, 0.6);
+  box-shadow: 0 25px 55px rgba(255, 154, 79, 0.18);
+}
+
+.event-poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5.7;
+  object-fit: cover;
+  background: #1d1028;
+}
+
+.event-card-content {
+  padding: 12px 16px 18px;
+  text-align: center;
+}
+
+.event-card h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f6d7b3;
+  font-family: 'Cinzel', serif;
+}
+
+.event-card .register-btn {
+  display: inline-block;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #fff8ee;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(22, 10, 30, 0.8);
+  box-shadow: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.event-card .register-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.88;
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .events-hero {
+    min-height: 220px;
+    padding-top: 56px;
+  }
+
+  .events-hero .hero-subtitle {
+    letter-spacing: 0.08em;
+    font-size: 0.82rem;
+  }
+
+  .event-card h2 {
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+  }
+}
