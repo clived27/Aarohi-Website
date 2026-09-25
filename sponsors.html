@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -57,7 +57,7 @@
       flex-shrink: 0;
       width: 180px;
       height: 110px;
-      border-radius: 10px;
+      border-radius: 0;
       border: 2px solid rgba(176,108,255,0.35);
       background:
         radial-gradient(circle at 50% 50%, rgba(40,20,90,0.9) 0%, rgba(14,10,40,0.97) 80%);
@@ -80,6 +80,16 @@
         0 4px 20px rgba(0,0,0,0.5);
       transform: translateY(-3px);
     }
+
+    /* ── Varied polygon shapes — title cards ── */
+    .ts-rect      { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    .ts-square     { width: 110px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    .ts-para-r     { width: 190px; clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%); }
+    .ts-para-l     { width: 190px; clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 12% 100%); }
+    .ts-trap-wide  { width: 220px; clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%); }
+    .ts-trap-top   { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 92% 100%, 8% 100%); }
+    .ts-rhombus    { width: 130px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); height: 130px; }
+    .ts-penta      { width: 180px; clip-path: polygon(6% 0%, 94% 0%, 100% 60%, 80% 100%, 20% 100%, 0% 60%); height: 120px; }
 
     .ts-card .logo-area {
       width: 60px;
@@ -249,7 +259,7 @@
       flex-shrink: 0;
       width: 150px;
       height: 80px;
-      border-radius: 8px;
+      border-radius: 0;
       border: 2px solid rgba(176,108,255,0.25);
       background:
         radial-gradient(circle at 50% 50%, rgba(50,20,100,0.7) 0%, rgba(14,10,40,0.95) 80%);
@@ -279,6 +289,16 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    /* ── Varied polygon shapes — marquee cards ── */
+    .mq-rect       { width: 170px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    .mq-square     { width: 80px;  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    .mq-para-r     { width: 160px; clip-path: polygon(14% 0%, 100% 0%, 86% 100%, 0% 100%); }
+    .mq-para-l     { width: 160px; clip-path: polygon(0% 0%, 86% 0%, 100% 100%, 14% 100%); }
+    .mq-trap-wide  { width: 200px; clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%); }
+    .mq-trap-top   { width: 180px; clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%); }
+    .mq-rhombus    { width: 90px;  height: 90px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+    .mq-penta      { width: 150px; clip-path: polygon(6% 0%, 94% 0%, 100% 55%, 80% 100%, 20% 100%, 0% 55%); height: 90px; }
 
     /* =====================================================
        BOTTOM NOTE
@@ -458,10 +478,15 @@
       { logoEmoji: "\u00a9",    logoImg: "", name: "Coin Sponsor" }
     ];
 
+    /* ── Shape pools ── */
+    const TS_SHAPES = ['ts-rect','ts-square','ts-para-r','ts-para-l','ts-trap-wide','ts-trap-top','ts-rhombus','ts-penta'];
+    const MQ_SHAPES = ['mq-rect','mq-square','mq-para-r','mq-para-l','mq-trap-wide','mq-trap-top','mq-rhombus','mq-penta'];
+
     /* ── Render title rows (static horizontal scroll) ── */
-    function buildTitleCard(s) {
+    function buildTitleCard(s, idx) {
+      const shape = TS_SHAPES[idx % TS_SHAPES.length];
       const div = document.createElement('div');
-      div.className = 'ts-card';
+      div.className = 'ts-card ' + shape;
       div.setAttribute('aria-label', s.name);
 
       const logoContent = s.logoImg
@@ -477,16 +502,17 @@
 
     function fillTitleRow(id, data) {
       const row = document.getElementById(id);
-      data.forEach(s => row.appendChild(buildTitleCard(s)));
+      data.forEach((s, i) => row.appendChild(buildTitleCard(s, i)));
     }
 
     fillTitleRow('title-row-1', ROW1);
     fillTitleRow('title-row-2', ROW2);
 
     /* ── Render marquee rows (doubled for loop) ── */
-    function buildMarqueeCard(s) {
+    function buildMarqueeCard(s, idx) {
+      const shape = MQ_SHAPES[idx % MQ_SHAPES.length];
       const div = document.createElement('div');
-      div.className = 'mq-card';
+      div.className = 'mq-card ' + shape;
       div.setAttribute('aria-label', s.name);
 
       const logoContent = s.logoImg
@@ -500,7 +526,7 @@
     function fillMarquee(id, data) {
       const track = document.getElementById(id);
       const doubled = [...data, ...data];
-      doubled.forEach(s => track.appendChild(buildMarqueeCard(s)));
+      doubled.forEach((s, i) => track.appendChild(buildMarqueeCard(s, i)));
     }
 
     fillMarquee('mq-row-1', MQ1);
