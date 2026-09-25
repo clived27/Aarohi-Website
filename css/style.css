@@ -821,14 +821,16 @@ body.merch-body {
   font-size: clamp(1.8rem, 4vw, 3rem);
   color: var(--cream);
   text-shadow: 0 0 30px rgba(176, 108, 255, 0.45);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.merch-section-header p {
+.merch-section-subhead {
   font-family: 'Lora', serif;
-  font-size: 1.05rem;
-  color: rgba(255, 248, 238, 0.6);
-  letter-spacing: 0.04em;
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  opacity: 0.85;
 }
 
 /* ── Product Grid ── */
