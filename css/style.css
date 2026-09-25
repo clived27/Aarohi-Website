@@ -478,7 +478,7 @@ body.events-body {
   min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(17, 10, 23, 0.42), rgba(17, 10, 23, 0.6)),
-    url('../assets/citynew.png') center/cover no-repeat fixed;
+    url('../assets/citynew.jpg') center/cover no-repeat fixed;
 }
 
 .events-hero {
