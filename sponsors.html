@@ -7,13 +7,13 @@
   <meta name="description" content="Sponsors of Aarohi 26 — Viva La Vida, VNIT Nagpur.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Rock+Salt&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Rock+Salt&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Bangers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
     /* =====================================================
-       SPONSORS PAGE
-       Inherits: dark nightlife palette, nav-bg, nav-glow
+       SPONSORS PAGE — Comic / Pop-art inspired
+       Dark-nightlife adaptation of the NITTFEST reference
        ===================================================== */
 
     body.sponsors-body {
@@ -25,416 +25,300 @@
     .sponsors-shell {
       min-height: 100vh;
       background:
-        radial-gradient(ellipse 110% 55% at 50% 0%, rgba(40,28,110,0.45) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 45% at 80% 100%, rgba(70,25,110,0.22) 0%, transparent 60%),
-        linear-gradient(180deg, #06081a 0%, #080c24 50%, #07091e 100%);
+        radial-gradient(ellipse 120% 50% at 50% 0%, rgba(60,30,130,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 40% at 80% 100%, rgba(70,25,110,0.2) 0%, transparent 55%),
+        linear-gradient(180deg, #06081a 0%, #0a0c28 100%);
     }
 
     .sp-main {
-      max-width: 1280px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 48px 32px 80px;
-    }
-
-    /* ---- Shared Section Header ---- */
-    .sp-heading {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .sp-heading::before,
-    .sp-heading::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(176,108,255,0.4), transparent);
-    }
-
-    .sp-heading h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.75rem, 1.8vw, 1rem);
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(200,180,255,0.7);
-      white-space: nowrap;
-    }
-
-    .sp-section { margin-bottom: 72px; }
-
-    /* =====================================================
-       SECTION 1 — TITLE SPONSORS (large cards + modal)
-       ===================================================== */
-
-    .title-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .title-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      padding: 48px 24px 32px;
-      border-radius: 16px;
-      border: 1px solid rgba(100,70,200,0.25);
-      background: linear-gradient(150deg, rgba(14,14,48,0.95), rgba(10,10,34,0.98));
-      cursor: pointer;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-      overflow: hidden;
-    }
-
-    /* glow on hover */
-    .title-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      background: radial-gradient(ellipse 90% 60% at 50% 0%, rgba(130,80,255,0.12), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.35s;
-      pointer-events: none;
-    }
-
-    .title-card:hover::before { opacity: 1; }
-
-    .title-card:hover {
-      border-color: rgba(160,100,255,0.55);
-      box-shadow:
-        0 0 0 1px rgba(160,100,255,0.15),
-        0 8px 36px rgba(100,50,220,0.3);
-      transform: translateY(-4px);
-    }
-
-    /* tier badge */
-    .tier-badge {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 4px 18px;
-      border-radius: 0 0 8px 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .tier-badge--title {
-      background: linear-gradient(90deg, rgba(255,210,122,0.18), rgba(255,210,122,0.3));
-      border: 1px solid rgba(255,210,122,0.45);
-      border-top: none;
-      color: var(--gold);
-    }
-
-    .tier-badge--silver {
-      background: linear-gradient(90deg, rgba(180,195,220,0.14), rgba(180,195,220,0.25));
-      border: 1px solid rgba(180,195,220,0.4);
-      border-top: none;
-      color: #c9d4e8;
-    }
-
-    .tier-badge--platinum {
-      background: linear-gradient(90deg, rgba(200,140,255,0.14), rgba(200,140,255,0.25));
-      border: 1px solid rgba(200,140,255,0.4);
-      border-top: none;
-      color: #dbb0ff;
-    }
-
-    .title-logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(130,80,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      transition: border-color 0.3s;
-    }
-
-    .title-card:hover .title-logo {
-      border-color: rgba(160,100,255,0.45);
-    }
-
-    .title-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 14px;
-    }
-
-    .title-name {
-      font-family: 'Rock Salt', cursive;
-      font-size: clamp(0.6rem, 1.4vw, 0.82rem);
-      color: #fff;
-      text-align: center;
-      letter-spacing: 0.03em;
-      line-height: 1.4;
-    }
-
-    /* ---- Modal Overlay ---- */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(4,4,18,0.85);
-      backdrop-filter: blur(6px);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .modal-overlay.active { display: flex; }
-
-    .modal-box {
-      position: relative;
-      max-width: 480px;
-      width: 100%;
-      padding: 40px 32px 32px;
-      border-radius: 18px;
-      border: 1px solid rgba(130,80,255,0.35);
-      background: linear-gradient(145deg, #0e0e34, #0a0a24);
-      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
-      animation: modal-in 0.3s ease-out;
-      text-align: center;
-    }
-
-    @keyframes modal-in {
-      from { opacity: 0; transform: translateY(20px) scale(0.96); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      background: none;
-      border: none;
-      color: rgba(200,180,255,0.5);
-      font-size: 1.4rem;
-      cursor: pointer;
-      transition: color 0.2s;
-      line-height: 1;
-    }
-
-    .modal-close:hover { color: #fff; }
-
-    .modal-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(130,80,255,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.4rem;
-      margin: 0 auto 18px;
-    }
-
-    .modal-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 12px;
-    }
-
-    .modal-name {
-      font-family: 'Rock Salt', cursive;
-      font-size: 0.9rem;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .modal-tier {
-      display: inline-block;
-      padding: 3px 14px;
-      border-radius: 999px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .modal-tier--title   { background: rgba(255,210,122,0.12); border: 1px solid rgba(255,210,122,0.35); color: var(--gold); }
-    .modal-tier--silver  { background: rgba(180,195,220,0.1);  border: 1px solid rgba(180,195,220,0.3);  color: #c9d4e8; }
-    .modal-tier--platinum{ background: rgba(200,140,255,0.1);  border: 1px solid rgba(200,140,255,0.3);  color: #dbb0ff; }
-
-    .modal-desc {
-      font-family: 'Lora', serif;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: rgba(200,180,255,0.65);
-      margin-bottom: 22px;
-    }
-
-    .modal-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 24px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(160,100,255,0.5);
-      background: rgba(130,80,255,0.1);
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #c084fc;
-      text-decoration: none;
-      transition: background 0.25s, box-shadow 0.25s;
-    }
-
-    .modal-link:hover {
-      background: rgba(160,100,255,0.22);
-      box-shadow: 0 0 18px rgba(160,100,255,0.4);
+      padding: 40px 20px 60px;
     }
 
     /* =====================================================
-       SECTION 2 — PARTNERS & ASSOCIATES (5-col grid)
+       ROW 1 & ROW 2 — TITLE SPONSORS (static grid, scrollable on mobile)
        ===================================================== */
 
-    .partner-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-    }
+    .title-section { margin-bottom: 16px; }
 
-    .partner-card {
+    .title-row {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       gap: 14px;
-      aspect-ratio: 1;
-      border-radius: 14px;
-      border: 1px solid rgba(80,60,160,0.22);
-      background: rgba(12,12,38,0.92);
+      overflow-x: auto;
+      padding: 8px 0;
+      scrollbar-width: none;
+    }
+
+    .title-row::-webkit-scrollbar { display: none; }
+
+    /* title sponsor card */
+    .ts-card {
+      flex-shrink: 0;
+      width: 180px;
+      height: 110px;
+      border-radius: 10px;
+      border: 2px solid rgba(176,108,255,0.35);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(40,20,90,0.9) 0%, rgba(14,10,40,0.97) 80%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      cursor: pointer;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
     }
 
-    .partner-card:hover {
-      border-color: rgba(140,90,255,0.5);
-      box-shadow: 0 4px 24px rgba(90,50,200,0.28);
+    .ts-card:hover {
+      border-color: rgba(255,210,122,0.7);
+      box-shadow:
+        0 0 16px rgba(255,210,122,0.25),
+        0 4px 20px rgba(0,0,0,0.5);
       transform: translateY(-3px);
     }
 
-    .partner-logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(100,70,200,0.18);
+    .ts-card .logo-area {
+      width: 60px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
-    .partner-logo img {
-      width: 100%;
-      height: 100%;
+    .ts-card .logo-area img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
-      padding: 8px;
     }
 
-    .partner-name {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 0.78rem;
-      color: rgba(220,210,255,0.8);
-      text-align: center;
-      letter-spacing: 0.04em;
+    .ts-card .card-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(255,210,122,0.1);
+      border: 1px solid rgba(255,210,122,0.3);
+      padding: 1px 8px;
+      border-radius: 4px;
+    }
+
+    .ts-card .card-label--silver {
+      color: #c0cee0;
+      background: rgba(180,200,230,0.1);
+      border-color: rgba(180,200,230,0.3);
+    }
+
+    .ts-card .card-label--powered {
+      color: var(--nav-glow);
+      background: rgba(176,108,255,0.1);
+      border-color: rgba(176,108,255,0.3);
     }
 
     /* =====================================================
-       SECTION 3 — BECOME A SPONSOR
+       CENTER TITLE — "2026 SPONSORS"
        ===================================================== */
 
-    .sp-cta-banner {
+    .sp-center-title {
       text-align: center;
-      padding: 52px 36px;
-      border-radius: 20px;
-      border: 1px solid rgba(100,70,200,0.22);
-      background: linear-gradient(140deg, rgba(16,14,56,0.9), rgba(10,8,38,0.95));
-      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+      padding: 48px 20px 40px;
+      position: relative;
     }
 
-    .sp-cta-banner h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: var(--gold);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .sp-center-title h1 {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      line-height: 1;
+    }
+
+    .sp-year {
+      display: inline-block;
+      background: var(--nav-glow);
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      padding: 6px 16px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .sp-word {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      padding: 6px 22px;
+      border-radius: 6px;
+      margin-left: 8px;
+      letter-spacing: 0.08em;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    .sp-subtitle {
+      margin-top: 14px;
+      font-family: 'Rock Salt', cursive;
+      font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+      color: rgba(200,180,255,0.55);
+      letter-spacing: 0.06em;
+    }
+
+    /* speech bubbles */
+    .bubble {
+      position: absolute;
+      background: #fff;
+      color: #111;
+      font-family: 'Bangers', cursive;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 14px;
+      border: 2px solid #333;
+      white-space: nowrap;
+    }
+
+    .bubble::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 0;
+      border: 8px solid transparent;
+    }
+
+    .bubble--left {
+      left: 2%;
+      top: 40%;
+    }
+
+    .bubble--left::after {
+      bottom: -14px;
+      left: 16px;
+      border-top-color: #fff;
+    }
+
+    .bubble--right {
+      right: 2%;
+      top: 36%;
+    }
+
+    .bubble--right::after {
+      bottom: -14px;
+      right: 16px;
+      border-top-color: #fff;
+    }
+
+    /* =====================================================
+       BOTTOM MARQUEE ROWS — Partner / associate logos
+       ===================================================== */
+
+    .marquee-section {
+      overflow: hidden;
       margin-bottom: 16px;
     }
 
-    .sp-cta-banner p {
-      font-family: 'Lora', serif;
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: rgba(200,180,255,0.6);
-      max-width: 560px;
-      margin: 0 auto 28px;
+    .mq-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      padding: 6px 0;
     }
 
-    .sp-cta-btn {
-      display: inline-flex;
+    .mq-track--ltr { animation: mq-ltr 40s linear infinite; }
+    .mq-track--rtl { animation: mq-rtl 36s linear infinite; }
+
+    .mq-track:hover { animation-play-state: paused; }
+
+    @keyframes mq-ltr {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes mq-rtl {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* marquee card */
+    .mq-card {
+      flex-shrink: 0;
+      width: 150px;
+      height: 80px;
+      border-radius: 8px;
+      border: 2px solid rgba(176,108,255,0.25);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(50,20,100,0.7) 0%, rgba(14,10,40,0.95) 80%);
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 34px;
-      border-radius: 999px;
-      background: var(--nav-glow);
-      color: #0d0618;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: box-shadow 0.25s, transform 0.2s;
+      justify-content: center;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
 
-    .sp-cta-btn:hover {
-      box-shadow: 0 0 24px rgba(176,108,255,0.6);
-      transform: translateY(-2px);
+    .mq-card:hover {
+      border-color: rgba(255,210,122,0.6);
+      box-shadow: 0 0 14px rgba(255,210,122,0.2);
+    }
+
+    .mq-card .logo-area {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      padding: 10px;
+    }
+
+    .mq-card .logo-area img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* =====================================================
+       BOTTOM NOTE
+       ===================================================== */
+
+    .sp-bottom-note {
+      text-align: right;
+      margin-top: 24px;
+      padding-right: 8px;
+    }
+
+    .sp-bottom-note span {
+      display: inline-block;
+      background: var(--gold);
+      color: #111;
+      font-family: 'Bangers', cursive;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 4px 14px;
+      border-radius: 4px;
+      border: 2px solid rgba(0,0,0,0.15);
     }
 
     /* =====================================================
        RESPONSIVE
        ===================================================== */
 
-    @media (max-width: 1024px) {
-      .partner-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-
     @media (max-width: 768px) {
-      .sp-main { padding: 32px 18px 60px; }
-      .title-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
-      .partner-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .sp-main { padding: 28px 10px 40px; }
+      .ts-card { width: 150px; height: 95px; }
+      .ts-card .logo-area { width: 48px; height: 40px; font-size: 1.6rem; }
+      .mq-card { width: 120px; height: 68px; }
+      .bubble { font-size: 0.55rem; padding: 4px 10px; }
     }
 
-    @media (max-width: 540px) {
-      .title-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-      .title-card { padding: 40px 14px 24px; }
-      .title-logo { width: 68px; height: 68px; font-size: 2rem; }
-      .partner-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .sp-cta-banner { padding: 36px 18px; }
-      .modal-box { padding: 32px 20px 24px; }
+    @media (max-width: 480px) {
+      .ts-card { width: 130px; height: 85px; }
+      .mq-card { width: 100px; height: 58px; }
+      .sp-center-title { padding: 32px 12px 28px; }
+      .bubble { display: none; }
     }
   </style>
 </head>
@@ -463,47 +347,43 @@
 
     <main class="sp-main">
 
-      <!-- ===== SECTION 1: TITLE SPONSORS ===== -->
-      <section class="sp-section" id="title-sponsors">
-        <div class="sp-heading"><h2>Title Sponsors</h2></div>
-        <div class="title-grid" id="title-grid"></div>
+      <!-- ===== ROW 1: TITLE SPONSORS ===== -->
+      <section class="title-section">
+        <div class="title-row" id="title-row-1"></div>
       </section>
 
-      <!-- ===== SECTION 2: PARTNERS & ASSOCIATES ===== -->
-      <section class="sp-section" id="partners">
-        <div class="sp-heading"><h2>Partners &amp; Associates</h2></div>
-        <div class="partner-grid" id="partner-grid"></div>
+      <!-- ===== ROW 2: MORE TITLE/ASSOCIATE SPONSORS ===== -->
+      <section class="title-section">
+        <div class="title-row" id="title-row-2"></div>
       </section>
 
-      <!-- ===== SECTION 3: BECOME A SPONSOR ===== -->
-      <section class="sp-section" id="become-sponsor">
-        <div class="sp-heading"><h2>Become a Sponsor</h2></div>
-        <div class="sp-cta-banner">
-          <p>Associate your brand with VNIT's grandest cultural stage. Reach thousands of students, alumni, and industry professionals across three electrifying nights.</p>
-          <a href="mailto:sponsors@aarohi.in" class="sp-cta-btn">
-            GET IN TOUCH &gt;
-          </a>
-        </div>
+      <!-- ===== CENTER TITLE ===== -->
+      <div class="sp-center-title">
+        <div class="bubble bubble--left">Aarohi is powered by heroes...</div>
+        <h1>
+          <span class="sp-year">2026</span>
+          <span class="sp-word">SPONSORS</span>
+        </h1>
+        <p class="sp-subtitle">Sponsors Assemble !</p>
+        <div class="bubble bubble--right">Bro... did you register yet?</div>
+      </div>
+
+      <!-- ===== MARQUEE ROW 1 (left to right) ===== -->
+      <section class="marquee-section">
+        <div class="mq-track mq-track--ltr" id="mq-row-1"></div>
       </section>
+
+      <!-- ===== MARQUEE ROW 2 (right to left) ===== -->
+      <section class="marquee-section">
+        <div class="mq-track mq-track--rtl" id="mq-row-2"></div>
+      </section>
+
+      <!-- ===== BOTTOM NOTE ===== -->
+      <div class="sp-bottom-note">
+        <span>And funded by icons....</span>
+      </div>
 
     </main>
-
-    <!-- ===== MODAL ===== -->
-    <div class="modal-overlay" id="sponsor-modal">
-      <div class="modal-box">
-        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-        <div class="modal-logo" id="modal-logo"></div>
-        <p class="modal-name" id="modal-name"></p>
-        <span class="modal-tier" id="modal-tier"></span>
-        <p class="modal-desc" id="modal-desc"></p>
-        <a href="#" class="modal-link" id="modal-link" target="_blank" rel="noopener">
-          Visit Website
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer merch-footer">
@@ -524,164 +404,107 @@
   <script>
     /* =============================================================
        SPONSOR DATA
-       logoImg: path to logo (e.g. "assets/sponsors/axis.png")
-       logoEmoji: fallback when no image is provided yet
+       logoImg: path to image (e.g. "assets/sponsors/axis.png")
+       logoEmoji: fallback emoji when no image
        ============================================================= */
 
-    const TITLE_SPONSORS = [
-      {
-        name: "Axis Bank",
-        tier: "TITLE",
-        tierClass: "title",
-        logoEmoji: "\u{1f3e6}",
-        logoImg: "",
-        desc: "Empowering students and communities through financial innovation. Axis Bank is proud to fuel Aarohi\u2019s grandest edition.",
-        website: "https://www.axisbank.com"
-      },
-      {
-        name: "Dr. Reddy\u2019s",
-        tier: "TITLE",
-        tierClass: "title",
-        logoEmoji: "\u{1f48a}",
-        logoImg: "",
-        desc: "A global pharmaceutical leader committed to providing access to affordable and innovative medicine.",
-        website: "https://www.drreddys.com"
-      },
-      {
-        name: "Infosys",
-        tier: "SILVER",
-        tierClass: "silver",
-        logoEmoji: "\u{1f4bb}",
-        logoImg: "",
-        desc: "Digital transformation partner of choice \u2014 shaping tomorrow\u2019s engineers today.",
-        website: "https://www.infosys.com"
-      },
-      {
-        name: "TCS",
-        tier: "SILVER",
-        tierClass: "silver",
-        logoEmoji: "\u{1f310}",
-        logoImg: "",
-        desc: "Tata Consultancy Services \u2014 building on belief, one innovation at a time.",
-        website: "https://www.tcs.com"
-      },
-      {
-        name: "Red Bull",
-        tier: "PLATINUM",
-        tierClass: "platinum",
-        logoEmoji: "\u{1f402}",
-        logoImg: "",
-        desc: "Giving wings to students who dare to push beyond the ordinary.",
-        website: "https://www.redbull.com"
-      },
-      {
-        name: "Amazon",
-        tier: "SILVER",
-        tierClass: "silver",
-        logoEmoji: "\u{1f4e6}",
-        logoImg: "",
-        desc: "Work hard. Have fun. Make history. Amazon is thrilled to power Aarohi 26.",
-        website: "https://www.amazon.in"
-      }
+    /* Row 1 — Title + Associate title sponsors */
+    const ROW1 = [
+      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Minus 2 Cents",    label: "TITLE SPONSOR",           labelClass: "" },
+      { logoEmoji: "\u26a1",    logoImg: "", name: "Sponsor 2",         label: "POWERED BY",             labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Hindkush",          label: "POWERED BY",             labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f355}", logoImg: "", name: "Divine Foods",      label: "POWERED BY",             labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Union Bank",        label: "ASSOCIATE TITLE SPONSOR", labelClass: "card-label--silver" },
+      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Minus 2 Cents",    label: "TITLE SPONSOR",           labelClass: "" },
+      { logoEmoji: "\u26a1",    logoImg: "", name: "Sponsor 2",         label: "POWERED BY",             labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Hindkush",          label: "POWERED BY",             labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f355}", logoImg: "", name: "Divine Foods",      label: "POWERED BY",             labelClass: "card-label--powered" }
     ];
 
-    const PARTNER_SPONSORS = [
-      { name: "Zomato",         logoEmoji: "\u{1f355}", logoImg: "", website: "https://www.zomato.com" },
-      { name: "Swiggy",         logoEmoji: "\u{1f6f5}", logoImg: "", website: "https://www.swiggy.com" },
-      { name: "boAt",           logoEmoji: "\u{1f3a7}", logoImg: "", website: "https://www.boat-lifestyle.com" },
-      { name: "Cred",           logoEmoji: "\u{1f4b3}", logoImg: "", website: "https://www.cred.club" },
-      { name: "Nykaa",          logoEmoji: "\u{1f484}", logoImg: "", website: "https://www.nykaa.com" },
-      { name: "Noise",          logoEmoji: "\u231a",    logoImg: "", website: "https://www.gonoise.com" },
-      { name: "Jio Cinema",     logoEmoji: "\u{1f3ac}", logoImg: "", website: "https://www.jiocinema.com" },
-      { name: "Classplus",      logoEmoji: "\u{1f4da}", logoImg: "", website: "https://www.classplus.co" },
-      { name: "Internshala",    logoEmoji: "\u{1f393}", logoImg: "", website: "https://internshala.com" },
-      { name: "Times of India", logoEmoji: "\u{1f4f0}", logoImg: "", website: "https://www.timesofindia.com" }
+    /* Row 2 — More sponsors */
+    const ROW2 = [
+      { logoEmoji: "\u{1f3d7}", logoImg: "", name: "Bharath Groups",    label: "SPONSOR",     labelClass: "card-label--silver" },
+      { logoEmoji: "\u{1f393}", logoImg: "", name: "RECAL",             label: "ALUMNI PARTNER", labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f354}", logoImg: "", name: "MyOP",              label: "SPONSOR",     labelClass: "card-label--silver" },
+      { logoEmoji: "\u2764",    logoImg: "", name: "Electrified By",    label: "POWERED BY",  labelClass: "card-label--powered" },
+      { logoEmoji: "\u{1f33f}", logoImg: "", name: "The Affordable",    label: "SPONSOR",     labelClass: "card-label--silver" },
+      { logoEmoji: "\u{1f48a}", logoImg: "", name: "Nua",               label: "SPONSOR",     labelClass: "card-label--silver" },
+      { logoEmoji: "\u{1f3d7}", logoImg: "", name: "Bharath Groups",    label: "SPONSOR",     labelClass: "card-label--silver" }
     ];
 
-    /* ── Build Title Sponsor Cards ── */
-    const titleGrid = document.getElementById('title-grid');
+    /* Marquee Row 1 — left to right */
+    const MQ1 = [
+      { logoEmoji: "\u{1f3a2}", logoImg: "", name: "Wonderla" },
+      { logoEmoji: "\u{1f36b}", logoImg: "", name: "Dark Fantasy" },
+      { logoEmoji: "\u{1f36a}", logoImg: "", name: "Abani" },
+      { logoEmoji: "\u{1f382}", logoImg: "", name: "Bingo" },
+      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Green Trends" },
+      { logoEmoji: "\u{1f534}", logoImg: "", name: "Dawbu" },
+      { logoEmoji: "\u2702",    logoImg: "", name: "Stylz" },
+      { logoEmoji: "\u{1f3a2}", logoImg: "", name: "Wonderla" },
+      { logoEmoji: "\u{1f36b}", logoImg: "", name: "Dark Fantasy" },
+      { logoEmoji: "\u{1f36a}", logoImg: "", name: "Abani" }
+    ];
 
-    TITLE_SPONSORS.forEach((s, i) => {
-      const logoInner = s.logoImg
-        ? '<img src="' + s.logoImg + '" alt="' + s.name + ' logo">'
+    /* Marquee Row 2 — right to left */
+    const MQ2 = [
+      { logoEmoji: "\u00a9",    logoImg: "", name: "Coin Sponsor" },
+      { logoEmoji: "\u{1f4e6}", logoImg: "", name: "Mani Mark" },
+      { logoEmoji: "\u{1f48e}", logoImg: "", name: "Dee" },
+      { logoEmoji: "\u{1f95b}", logoImg: "", name: "Amul" },
+      { logoEmoji: "\u{1f964}", logoImg: "", name: "Coca-Cola" },
+      { logoEmoji: "\u{1f4c8}", logoImg: "", name: "Stock Edge" },
+      { logoEmoji: "\u{1f49a}", logoImg: "", name: "Pureheart" },
+      { logoEmoji: "\u00a9",    logoImg: "", name: "Coin Sponsor" }
+    ];
+
+    /* ── Render title rows (static horizontal scroll) ── */
+    function buildTitleCard(s) {
+      const div = document.createElement('div');
+      div.className = 'ts-card';
+      div.setAttribute('aria-label', s.name);
+
+      const logoContent = s.logoImg
+        ? '<img src="' + s.logoImg + '" alt="' + s.name + '">'
         : s.logoEmoji;
 
-      const card = document.createElement('article');
-      card.className = 'title-card';
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', s.name + ' \u2014 click for details');
-      card.dataset.index = i;
-      card.innerHTML =
-        '<span class="tier-badge tier-badge--' + s.tierClass + '">' + s.tier + '</span>' +
-        '<div class="title-logo">' + logoInner + '</div>' +
-        '<p class="title-name">' + s.name + '</p>';
+      div.innerHTML =
+        '<div class="logo-area">' + logoContent + '</div>' +
+        '<span class="card-label ' + (s.labelClass || '') + '">' + s.label + '</span>';
 
-      card.addEventListener('click', () => openModal(i));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(i); }
-      });
+      return div;
+    }
 
-      titleGrid.appendChild(card);
-    });
+    function fillTitleRow(id, data) {
+      const row = document.getElementById(id);
+      data.forEach(s => row.appendChild(buildTitleCard(s)));
+    }
 
-    /* ── Build Partner Cards ── */
-    const partnerGrid = document.getElementById('partner-grid');
+    fillTitleRow('title-row-1', ROW1);
+    fillTitleRow('title-row-2', ROW2);
 
-    PARTNER_SPONSORS.forEach(p => {
-      const logoInner = p.logoImg
-        ? '<img src="' + p.logoImg + '" alt="' + p.name + ' logo">'
-        : p.logoEmoji;
+    /* ── Render marquee rows (doubled for loop) ── */
+    function buildMarqueeCard(s) {
+      const div = document.createElement('div');
+      div.className = 'mq-card';
+      div.setAttribute('aria-label', s.name);
 
-      const card = document.createElement('a');
-      card.href = p.website;
-      card.target = '_blank';
-      card.rel = 'noopener';
-      card.className = 'partner-card';
-      card.setAttribute('aria-label', p.name);
-      card.innerHTML =
-        '<div class="partner-logo">' + logoInner + '</div>' +
-        '<p class="partner-name">' + p.name + '</p>';
-
-      partnerGrid.appendChild(card);
-    });
-
-    /* ── Modal Logic ── */
-    const overlay = document.getElementById('sponsor-modal');
-    const modalClose = document.getElementById('modal-close');
-
-    function openModal(idx) {
-      const s = TITLE_SPONSORS[idx];
-      const logoInner = s.logoImg
-        ? '<img src="' + s.logoImg + '" alt="' + s.name + ' logo">'
+      const logoContent = s.logoImg
+        ? '<img src="' + s.logoImg + '" alt="' + s.name + '">'
         : s.logoEmoji;
 
-      document.getElementById('modal-logo').innerHTML = logoInner;
-      document.getElementById('modal-name').textContent = s.name;
-
-      const tierEl = document.getElementById('modal-tier');
-      tierEl.textContent = s.tier + ' SPONSOR';
-      tierEl.className = 'modal-tier modal-tier--' + s.tierClass;
-
-      document.getElementById('modal-desc').textContent = s.desc;
-      document.getElementById('modal-link').href = s.website;
-
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      div.innerHTML = '<div class="logo-area">' + logoContent + '</div>';
+      return div;
     }
 
-    function closeModal() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
+    function fillMarquee(id, data) {
+      const track = document.getElementById(id);
+      const doubled = [...data, ...data];
+      doubled.forEach(s => track.appendChild(buildMarqueeCard(s)));
     }
 
-    modalClose.addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
+    fillMarquee('mq-row-1', MQ1);
+    fillMarquee('mq-row-2', MQ2);
   </script>
 </body>
 </html>
