@@ -1,0 +1,397 @@
+/* =========================================================
+   AAROHI '26 — BUY PASSES (TICKET GUIDE)
+   Theme: Professional Dark Festival Twilight Palette
+   Responsive: Full-width Topbar on Desktop, Native Mobile Fit
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --bg-dark: #0a0414;
+  --bg-surface: #120822;
+  --bg-card: rgba(20, 11, 35, 0.72);
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-active: rgba(176, 108, 255, 0.4);
+  --accent-purple: #9b51e0;
+  --accent-glow: #b06cff;
+  --accent-gold: #ffd27a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.5);
+
+  --font-heading: 'Cinzel', serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Lora', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.passes-body {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(155, 81, 224, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(255, 210, 122, 0.08) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0414 0%, #120921 50%, #080310 100%);
+  background-attachment: fixed;
+}
+
+/* =========================================================
+   TOP BAR — Fully responsive (Edges on Desktop / Clean on Mobile)
+   ========================================================= */
+.passes-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 4, 20, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+.topbar-inner {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.back-link:hover {
+  background: rgba(176, 108, 255, 0.15);
+  border-color: rgba(176, 108, 255, 0.4);
+  color: #fff;
+  transform: translateX(-2px);
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.brand-tag {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1) brightness(1.2);
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   MAIN CONTENT CONTAINER
+   ========================================================= */
+.passes-container {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 16px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.passes-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 440px;
+  margin: 0 auto 18px;
+}
+
+/* Top Quick Action Button */
+.header-action {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-hero-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 210, 122, 0.35);
+  color: var(--accent-gold);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-hero-app:hover {
+  background: rgba(255, 210, 122, 0.15);
+  border-color: var(--accent-gold);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-svg-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.btn-svg-arrow {
+  width: 14px;
+  height: 14px;
+}
+
+/* =========================================================
+   STEPS FEED (VERTICAL IMAGES)
+   ========================================================= */
+.steps-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.step-card {
+  width: 100%;
+  background: #000;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.step-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+}
+
+.step-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================================
+   PROFESSIONAL BOTTOM ACTION SECTION
+   ========================================================= */
+.passes-bottom-section {
+  margin-top: 36px;
+}
+
+.action-card {
+  position: relative;
+  background: rgba(18, 10, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 36px 24px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.action-card-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 60px;
+  background: radial-gradient(ellipse at top, rgba(176, 108, 255, 0.3), transparent 70%);
+  pointer-events: none;
+}
+
+.action-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.action-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 400px;
+  margin: 0 auto 24px;
+}
+
+.action-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Premium Action Button */
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #a35db3 0%, #7d3ca8 50%, #b06cff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 
+    0 4px 20px rgba(176, 108, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 30px rgba(176, 108, 255, 0.65),
+    0 0 40px rgba(176, 108, 255, 0.3);
+}
+
+.btn-arrow-right {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary-action:hover .btn-arrow-right {
+  transform: translateX(4px);
+}
+
+.action-badge {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.passes-footer {
+  text-align: center;
+  padding: 24px 16px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(10, 4, 20, 0.8);
+}
+
+/* =========================================================
+   RESPONSIVE (Laptops, Tablets & Mobile)
+   ========================================================= */
+@media (max-width: 768px) {
+  .topbar-inner {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-inner {
+    padding: 10px 14px;
+  }
+
+  .back-link {
+    font-size: 0.76rem;
+    padding: 6px 12px;
+  }
+
+  .brand-logo {
+    height: 32px;
+  }
+
+  .passes-container {
+    padding: 20px 12px 40px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .action-card {
+    padding: 28px 16px;
+  }
+
+  .btn-primary-action {
+    font-size: 0.8rem;
+    padding: 13px 18px;
+    letter-spacing: 0.08em;
+  }
+}
