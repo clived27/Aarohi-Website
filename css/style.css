@@ -640,127 +640,130 @@ body.merch-body {
 
 .merch-hero {
   position: relative;
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   overflow: hidden;
-  padding: 100px 24px 80px;
+  padding: 48px 48px 44px;
   background:
-    radial-gradient(ellipse 80% 55% at 50% 40%, rgba(176, 108, 255, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 80%, rgba(243, 163, 92, 0.14) 0%, transparent 60%),
-    linear-gradient(180deg,
-      rgba(10, 6, 18, 0.0) 0%,
-      rgba(26, 16, 44, 0.6) 60%,
-      rgba(10, 6, 18, 0.95) 100%
-    );
+    radial-gradient(ellipse 80% 200% at 0% 50%, rgba(176, 108, 255, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 200% at 100% 50%, rgba(243, 163, 92, 0.1) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(26, 16, 44, 0.7), rgba(10, 6, 18, 0.92));
 }
 
-/* Floating icons — reuse merch-specific class */
+/* Floating icons — keep but tighter */
 .merch-icon {
   position: absolute;
   font-size: 2rem;
-  opacity: 0.3;
+  opacity: 0.2;
   user-select: none;
   pointer-events: none;
   animation: merch-float 7s ease-in-out infinite;
 }
 
-.mi-heart   { top: 18%; left: 10%;  color: var(--pink);  font-size: 1.8rem; animation-delay: 0s;   }
-.mi-spade   { top: 14%; right: 14%; color: var(--cream); font-size: 2rem;   animation-delay: 1.2s; }
-.mi-diamond { top: 60%; left: 7%;   color: var(--gold);  font-size: 1.6rem; animation-delay: 2.4s; }
-.mi-note1   { top: 26%; left: 22%;  color: var(--cream); font-size: 2.2rem; animation-delay: 0.8s; }
-.mi-note2   { top: 38%; right: 8%;  color: var(--cream); font-size: 1.7rem; animation-delay: 1.8s; }
+.mi-heart   { top: 30%; left: 4%;   color: var(--pink);  font-size: 1.4rem; animation-delay: 0s;   }
+.mi-spade   { top: 20%; right: 6%;  color: var(--cream); font-size: 1.6rem; animation-delay: 1.2s; }
+.mi-diamond { bottom: 20%; left: 30%; color: var(--gold);  font-size: 1.3rem; animation-delay: 2.4s; }
+.mi-note1   { top: 15%; left: 42%;  color: var(--cream); font-size: 1.8rem; animation-delay: 0.8s; }
+.mi-note2   { bottom: 18%; right: 14%; color: var(--cream); font-size: 1.5rem; animation-delay: 1.8s; }
 .mi-chip1 {
-  top: 22%; right: 26%;
-  width: 36px; height: 36px;
+  top: 18%; right: 22%;
+  width: 28px; height: 28px;
   border-radius: 50%;
-  border: 3px dashed var(--gold);
-  opacity: 0.35;
+  border: 2px dashed var(--gold);
+  opacity: 0.28;
   animation-delay: 0.4s;
 }
 .mi-chip2 {
-  bottom: 24%; left: 18%;
-  width: 26px; height: 26px;
+  bottom: 16%; left: 18%;
+  width: 20px; height: 20px;
   border-radius: 50%;
-  border: 3px dashed var(--pink);
-  opacity: 0.3;
+  border: 2px dashed var(--pink);
+  opacity: 0.25;
   animation-delay: 2s;
 }
 
 @keyframes merch-float {
   0%, 100% { transform: translateY(0px);   }
-  50%       { transform: translateY(-14px); }
+  50%       { transform: translateY(-10px); }
 }
 
-/* Hero text */
+/* Horizontal two-column layout */
 .merch-hero-inner {
   position: relative;
   z-index: 5;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.merch-hero-left {
+  flex: 1;
+}
+
+.merch-hero-right {
+  flex-shrink: 0;
+  max-width: 340px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 700px;
+  align-items: flex-end;
+  gap: 18px;
+  text-align: right;
 }
 
 .merch-eyebrow {
   font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .merch-title {
   font-family: 'Rock Salt', cursive;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  line-height: 1.08;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
   color: var(--cream);
   text-shadow:
-    0 0 40px rgba(176, 108, 255, 0.55),
-    0 6px 32px rgba(10, 6, 18, 0.8);
-  margin-bottom: 16px;
+    0 0 40px rgba(176, 108, 255, 0.5),
+    0 4px 24px rgba(10, 6, 18, 0.8);
+  margin: 0;
 }
 
 .merch-subtitle {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--periwinkle);
-  margin-bottom: 20px;
+  display: none; /* folded into eyebrow */
 }
 
 .merch-tagline {
   font-family: 'Lora', serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-size: clamp(0.85rem, 1.4vw, 0.98rem);
   line-height: 1.7;
-  color: rgba(255, 248, 238, 0.7);
-  margin-bottom: 36px;
+  color: rgba(255, 248, 238, 0.62);
+  margin: 0;
 }
 
 .merch-hero-cta {
   display: inline-block;
-  padding: 15px 42px;
+  padding: 11px 28px;
   border-radius: 999px;
-  border: 2px solid var(--nav-glow);
-  background: rgba(176, 108, 255, 0.12);
+  border: 1.5px solid var(--nav-glow);
+  background: rgba(176, 108, 255, 0.1);
   font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--nav-glow);
   backdrop-filter: blur(4px);
   transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .merch-hero-cta:hover {
   background: var(--nav-glow);
   color: var(--nav-bg);
-  box-shadow: 0 0 28px rgba(176, 108, 255, 0.7);
+  box-shadow: 0 0 24px rgba(176, 108, 255, 0.65);
   transform: translateY(-2px);
 }
 
@@ -1314,8 +1317,19 @@ body.merch-body {
 
 @media (max-width: 640px) {
   .merch-hero {
-    min-height: 75vh;
-    padding: 90px 20px 60px;
+    padding: 32px 20px 28px;
+  }
+
+  .merch-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .merch-hero-right {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
   }
 
   .merch-grid {
