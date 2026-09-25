@@ -631,7 +631,7 @@ body.merch-body {
   min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(10, 6, 18, 0.55), rgba(10, 6, 18, 0.82)),
-    url('../assets/citynew.png') center / cover no-repeat fixed;
+    url('../assets/citynew.jpg') center / cover no-repeat fixed;
 }
 
 /* =========================================================
