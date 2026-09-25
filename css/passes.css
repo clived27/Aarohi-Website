@@ -1,27 +1,35 @@
 /* =========================================================
    AAROHI '26 — BUY PASSES (TICKET GUIDE)
-   Theme: Professional Dark Festival Twilight Palette
-   Responsive: Full-width Topbar on Desktop, Native Mobile Fit
+   Theme: Dark Nightlife, Radiant Gold & Sunset Pink Palette
+   Matte & Clean Finish (No excessive neon blur/glow bloom)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-dark: #0a0414;
-  --bg-surface: #120822;
-  --bg-card: rgba(20, 11, 35, 0.72);
-  --border-subtle: rgba(255, 255, 255, 0.09);
-  --border-active: rgba(176, 108, 255, 0.4);
-  --accent-purple: #9b51e0;
-  --accent-glow: #b06cff;
-  --accent-gold: #ffd27a;
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.75);
-  --text-muted: rgba(255, 255, 255, 0.5);
+  /* Dark Nightlife Base */
+  --bg-dark-base: #0a0414;
+  --bg-dark-card: rgba(20, 9, 32, 0.82);
+  --bg-dark-surface: rgba(14, 6, 24, 0.92);
 
+  /* Golden Highlights */
+  --gold-primary: #ffd27a;
+  --gold-warm: #f7d9a7;
+  --gold-sunset: #f3a35c;
+
+  /* Pinkish Twilight Accents */
+  --pink-twilight: #f0879c;
+  --pink-vibrant: #ef8b9e;
+  --pink-deep: #e25c80;
+
+  /* Borders & Rules */
+  --border-subtle: rgba(255, 210, 122, 0.2);
+  --border-pink: rgba(240, 135, 156, 0.3);
+
+  /* Typography */
   --font-heading: 'Cinzel', serif;
+  --font-body: 'EB Garamond', Georgia, serif;
   --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Lora', serif;
 }
 
 * {
@@ -36,19 +44,22 @@ html {
 
 body.passes-body {
   min-height: 100vh;
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
+  background-color: var(--bg-dark-base);
+  color: #fff8ee;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(155, 81, 224, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(255, 210, 122, 0.08) 0%, transparent 70%),
-    linear-gradient(180deg, #0a0414 0%, #120921 50%, #080310 100%);
+    radial-gradient(ellipse 90% 50% at 50% -5%, rgba(240, 135, 156, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 40% at 85% 35%, rgba(255, 210, 122, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 15% 70%, rgba(226, 92, 128, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0414 0%, #150824 40%, #1a0a2c 70%, #080310 100%);
   background-attachment: fixed;
 }
 
 /* =========================================================
-   TOP BAR — Fully responsive (Edges on Desktop / Clean on Mobile)
+   TOP BAR (Full width on desktop, clean on mobile)
    ========================================================= */
 .passes-topbar {
   position: sticky;
@@ -57,7 +68,7 @@ body.passes-body {
   background: rgba(10, 4, 20, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-pink);
   width: 100%;
 }
 
@@ -75,30 +86,37 @@ body.passes-body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-secondary);
+  color: var(--gold-warm);
   text-decoration: none;
   font-family: var(--font-heading);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 7px 16px;
+  padding: 7px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  background: rgba(240, 135, 156, 0.08);
+  border: 1px solid rgba(255, 210, 122, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
 }
 
 .back-link:hover {
-  background: rgba(176, 108, 255, 0.15);
-  border-color: rgba(176, 108, 255, 0.4);
-  color: #fff;
+  background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
+  border-color: transparent;
+  color: #0a0414;
   transform: translateX(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .back-icon {
   width: 16px;
   height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.back-link:hover .back-icon {
+  transform: translateX(-3px);
 }
 
 .brand-tag {
@@ -107,7 +125,7 @@ body.passes-body {
 }
 
 .brand-logo {
-  height: 38px;
+  height: 40px;
   width: auto;
   object-fit: contain;
   filter: invert(1) brightness(1.2);
@@ -119,10 +137,10 @@ body.passes-body {
 }
 
 /* =========================================================
-   MAIN CONTENT CONTAINER
+   MAIN CONTAINER
    ========================================================= */
 .passes-container {
-  max-width: 520px;
+  max-width: 540px;
   width: 100%;
   margin: 0 auto;
   padding: 36px 16px 64px;
@@ -133,39 +151,42 @@ body.passes-body {
 /* Header Section */
 .passes-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .badge {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent-gold);
+  color: var(--gold-primary);
   margin-bottom: 10px;
 }
 
 .page-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #ffffff;
+  font-size: clamp(1.75rem, 4.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
   line-height: 1.25;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--gold-warm) 50%, var(--pink-twilight) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .page-subtitle {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 235, 245, 0.8);
   line-height: 1.5;
   max-width: 440px;
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 }
 
-/* Top Quick Action Button */
+/* Matte Top Quick Action Capsule Button */
 .header-action {
   display: flex;
   justify-content: center;
@@ -175,25 +196,27 @@ body.passes-body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 20px;
+  padding: 10px 24px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 210, 122, 0.35);
-  color: var(--accent-gold);
+  background: rgba(240, 135, 156, 0.08);
+  border: 1px solid rgba(255, 210, 122, 0.4);
+  color: var(--gold-primary);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
 }
 
 .btn-hero-app:hover {
-  background: rgba(255, 210, 122, 0.15);
-  border-color: var(--accent-gold);
-  color: #fff;
+  background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
+  color: #0a0414;
+  border-color: transparent;
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .btn-svg-icon {
@@ -204,6 +227,11 @@ body.passes-body {
 .btn-svg-arrow {
   width: 14px;
   height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.btn-hero-app:hover .btn-svg-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
@@ -212,22 +240,24 @@ body.passes-body {
 .steps-feed {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
 }
 
 .step-card {
   width: 100%;
-  background: #000;
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  background: var(--bg-dark-card);
+  border: 1.5px solid var(--border-pink);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .step-card:hover {
-  border-color: var(--border-active);
+  border-color: var(--gold-primary);
   transform: translateY(-2px);
 }
 
@@ -240,60 +270,50 @@ body.passes-body {
 }
 
 /* =========================================================
-   PROFESSIONAL BOTTOM ACTION SECTION
+   BOTTOM ACTION SECTION
    ========================================================= */
 .passes-bottom-section {
-  margin-top: 36px;
+  margin-top: 38px;
 }
 
 .action-card {
   position: relative;
-  background: rgba(18, 10, 30, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  padding: 36px 24px;
+  background: linear-gradient(180deg, rgba(28, 12, 42, 0.88) 0%, rgba(16, 7, 26, 0.94) 100%);
+  border: 1.5px solid rgba(255, 210, 122, 0.35);
+  border-radius: 22px;
+  padding: 38px 24px;
   text-align: center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
-.action-card-glow {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  height: 60px;
-  background: radial-gradient(ellipse at top, rgba(176, 108, 255, 0.3), transparent 70%);
-  pointer-events: none;
-}
-
 .action-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  font-size: clamp(1.3rem, 3.5vw, 1.65rem);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .action-desc {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 235, 245, 0.82);
   line-height: 1.55;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto 24px;
 }
 
 .action-btn-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-/* Premium Action Button */
+/* Matte Sunset-Pink to Gold Gradient Capsule Button */
 .btn-primary-action {
   display: inline-flex;
   align-items: center;
@@ -301,28 +321,25 @@ body.passes-body {
   gap: 10px;
   width: 100%;
   max-width: 360px;
-  padding: 14px 28px;
+  padding: 15px 30px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #a35db3 0%, #7d3ca8 50%, #b06cff 100%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--pink-vibrant) 0%, var(--pink-deep) 35%, var(--gold-primary) 100%);
+  color: #0a0414;
   font-family: var(--font-heading);
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 
-    0 4px 20px rgba(176, 108, 255, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .btn-primary-action:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 8px 30px rgba(176, 108, 255, 0.65),
-    0 0 40px rgba(176, 108, 255, 0.3);
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--pink-vibrant) 65%, var(--pink-deep) 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .btn-arrow-right {
@@ -337,8 +354,8 @@ body.passes-body {
 
 .action-badge {
   display: block;
-  font-size: 0.76rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: rgba(255, 235, 245, 0.55);
   letter-spacing: 0.04em;
 }
 
@@ -347,11 +364,14 @@ body.passes-body {
    ========================================================= */
 .passes-footer {
   text-align: center;
-  padding: 24px 16px;
+  padding: 28px 16px;
   border-top: 1px solid var(--border-subtle);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  background: rgba(10, 4, 20, 0.8);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 235, 245, 0.55);
+  background: rgba(10, 4, 20, 0.85);
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================================================
@@ -370,28 +390,28 @@ body.passes-body {
 
   .back-link {
     font-size: 0.76rem;
-    padding: 6px 12px;
+    padding: 6px 14px;
   }
 
   .brand-logo {
-    height: 32px;
+    height: 34px;
   }
 
   .passes-container {
-    padding: 20px 12px 40px;
+    padding: 22px 12px 48px;
   }
 
   .page-title {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
 
   .action-card {
-    padding: 28px 16px;
+    padding: 30px 16px;
   }
 
   .btn-primary-action {
-    font-size: 0.8rem;
-    padding: 13px 18px;
+    font-size: 0.82rem;
+    padding: 13px 20px;
     letter-spacing: 0.08em;
   }
 }
