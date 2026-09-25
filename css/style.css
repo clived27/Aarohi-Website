@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    AAROHI 26 — Stylesheet
    Palette: Vice-City sunset + deep nightlife darks
    Sky lavender #C9D2F2, dusk purple #8672B8, twilight pink #F0879C,
@@ -631,7 +631,7 @@ body.merch-body {
   min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(10, 6, 18, 0.55), rgba(10, 6, 18, 0.72)),
-    url('../assets/merchbg.png') center / cover no-repeat fixed;
+    url('../assets/merchbg.jpg') center / cover no-repeat fixed;
 }
 
 /* =========================================================
