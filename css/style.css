@@ -630,8 +630,8 @@ body.merch-body {
 .merch-page-shell {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(10, 6, 18, 0.55), rgba(10, 6, 18, 0.82)),
-    url('../assets/citynew.jpg') center / cover no-repeat fixed;
+    linear-gradient(180deg, rgba(10, 6, 18, 0.55), rgba(10, 6, 18, 0.72)),
+    url('../assets/merchbg.png') center / cover no-repeat fixed;
 }
 
 /* =========================================================
