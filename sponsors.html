@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarohi 26 — Sponsors</title>
-  <meta name="description" content="Sponsors of Aarohi 26 — Viva La Vida, VNIT Nagpur.">
+  <title>Aarohi 26 — Official Sponsors</title>
+  <meta name="description" content="Official Sponsors of Aarohi 26 — Viva La Vida, VNIT Nagpur.">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Rock+Salt&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;500;600;700&family=Rock+Salt&family=Rye&family=Sancreek&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
     /* =====================================================
-       SPONSORS PAGE — Comic / Pop-art inspired
-       Dark-nightlife adaptation of the NITTFEST reference
+       SPONSORS PAGE — Airmail Envelope & Vintage Western Theme
        ===================================================== */
 
     body.sponsors-body {
-      background: #06081a;
+      background: #07030f;
       color: var(--cream);
       overflow-x: hidden;
     }
@@ -25,320 +25,444 @@
     .sponsors-shell {
       min-height: 100vh;
       background:
-        radial-gradient(ellipse 120% 50% at 50% 0%, rgba(60,30,130,0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 40% at 80% 100%, rgba(70,25,110,0.2) 0%, transparent 55%),
-        linear-gradient(180deg, #06081a 0%, #0a0c28 100%);
+        radial-gradient(ellipse 100% 40% at 50% 0%, rgba(60,25,120,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 40% at 80% 100%, rgba(90,20,70,0.2) 0%, transparent 55%),
+        linear-gradient(180deg, #07030f 0%, #0d0618 100%);
+    }
+
+    .sp-header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 30px 24px 10px;
+    }
+
+    .sp-header-logo {
+      height: 48px;
+      filter: drop-shadow(0 0 10px rgba(255,210,122,0.4));
+    }
+
+    .sp-header-dates {
+      font-family: 'Rye', cursive;
+      font-size: clamp(0.9rem, 2vw, 1.3rem);
+      color: var(--pink);
+      text-align: right;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 10px rgba(239, 139, 158, 0.4);
     }
 
     .sp-main {
-      max-width: 1400px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 20px 24px 80px;
     }
 
     /* =====================================================
-       ROW 1 & ROW 2 — TITLE SPONSORS (static grid, scrollable on mobile)
+       MAIN SPONSORS — Z-LAYOUT ALTERNATING PATTERN
        ===================================================== */
 
-    .title-section { margin-bottom: 16px; }
-
-    .title-row {
+    .z-sponsor-container {
       display: flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding: 8px 0;
-      scrollbar-width: none;
+      flex-direction: column;
+      gap: 64px;
+      margin-bottom: 90px;
     }
 
-    .title-row::-webkit-scrollbar { display: none; }
+    .z-sponsor-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+    }
 
-    /* title sponsor card */
-    .ts-card {
-      flex-shrink: 0;
-      width: 180px;
-      height: 110px;
-      border-radius: 0;
-      border: 2px solid rgba(176,108,255,0.35);
-      background:
-        radial-gradient(circle at 50% 50%, rgba(40,20,90,0.9) 0%, rgba(14,10,40,0.97) 80%);
+    .z-sponsor-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* Text block beside envelope */
+    .z-sponsor-text {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .sp-vintage-official {
+      font-family: 'Sancreek', cursive;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sp-vintage-role {
+      font-family: 'Sancreek', cursive;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Row Color Variants matching Screenshots */
+    .theme-pink .sp-vintage-official,
+    .theme-pink .sp-vintage-role {
+      color: #f07b93;
+      text-shadow: 0 0 16px rgba(240, 123, 147, 0.4), 2px 2px 0px #3a1020;
+    }
+
+    .theme-yellow .sp-vintage-official,
+    .theme-yellow .sp-vintage-role {
+      color: #ffd27a;
+      text-shadow: 0 0 16px rgba(255, 210, 122, 0.4), 2px 2px 0px #402a00;
+    }
+
+    .theme-purple .sp-vintage-official,
+    .theme-purple .sp-vintage-role {
+      color: #c89eff;
+      text-shadow: 0 0 16px rgba(200, 158, 255, 0.4), 2px 2px 0px #220a40;
+    }
+
+    .theme-cyan .sp-vintage-official,
+    .theme-cyan .sp-vintage-role {
+      color: #7de8f8;
+      text-shadow: 0 0 16px rgba(125, 232, 248, 0.4), 2px 2px 0px #083040;
+    }
+
+    /* =====================================================
+       ENVELOPE CARD PROFILE DESIGN (Exact match to Screenshots)
+       ===================================================== */
+
+    .envelope-card-wrap {
+      flex: 1.1;
+      max-width: 540px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .envelope-card {
       position: relative;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .ts-card:hover {
-      border-color: rgba(255,210,122,0.7);
+      width: 100%;
+      aspect-ratio: 1.45 / 1;
+      background: #e8dbca; /* vintage airmail parchment */
+      border-radius: 6px;
       box-shadow:
-        0 0 16px rgba(255,210,122,0.25),
-        0 4px 20px rgba(0,0,0,0.5);
-      transform: translateY(-3px);
-    }
-
-    /* ── Varied polygon shapes — title cards ── */
-    .ts-rect      { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-    .ts-square     { width: 110px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-    .ts-para-r     { width: 190px; clip-path: polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%); }
-    .ts-para-l     { width: 190px; clip-path: polygon(0% 0%, 88% 0%, 100% 100%, 12% 100%); }
-    .ts-trap-wide  { width: 220px; clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%); }
-    .ts-trap-top   { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 92% 100%, 8% 100%); }
-    .ts-rhombus    { width: 130px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); height: 130px; }
-    .ts-penta      { width: 180px; clip-path: polygon(6% 0%, 94% 0%, 100% 60%, 80% 100%, 20% 100%, 0% 60%); height: 120px; }
-
-    .ts-card .logo-area {
-      width: 60px;
-      height: 50px;
+        0 18px 40px rgba(0,0,0,0.7),
+        0 0 25px rgba(176,108,255,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      padding: 24px;
+      /* Airmail striped border using CSS border-image */
+      border: 14px solid transparent;
+      border-image: repeating-linear-gradient(
+        -45deg,
+        #d13b3b 0 16px,
+        #ffffff 16px 26px,
+        #2b4d90 26px 42px,
+        #ffffff 42px 52px
+      ) 18;
     }
 
-    .ts-card .logo-area img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+    .envelope-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 24px 50px rgba(0,0,0,0.8),
+        0 0 35px rgba(255,210,122,0.3);
     }
 
-    .ts-card .card-label {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.52rem;
+    /* Parchment inner texture */
+    .envelope-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4), transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(170,140,100,0.25), transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Circular Postmarks / Watermarks */
+    .postmark-circle {
+      position: absolute;
+      width: 105px;
+      height: 105px;
+      border: 2px solid rgba(130, 45, 170, 0.4);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      color: rgba(130, 45, 170, 0.5);
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(255,210,122,0.1);
-      border: 1px solid rgba(255,210,122,0.3);
-      padding: 1px 8px;
-      border-radius: 4px;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+      transform: rotate(-18deg);
+      user-select: none;
     }
 
-    .ts-card .card-label--silver {
-      color: #c0cee0;
-      background: rgba(180,200,230,0.1);
-      border-color: rgba(180,200,230,0.3);
+    .postmark-circle::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px dashed rgba(130, 45, 170, 0.35);
+      border-radius: 50%;
     }
 
-    .ts-card .card-label--powered {
-      color: var(--nav-glow);
-      background: rgba(176,108,255,0.1);
-      border-color: rgba(176,108,255,0.3);
+    .postmark-circle--top-left { top: 12px; left: 16px; }
+    .postmark-circle--bottom-right {
+      bottom: 12px;
+      right: 18px;
+      border-color: rgba(200, 50, 70, 0.4);
+      color: rgba(200, 50, 70, 0.5);
+      transform: rotate(14deg);
+    }
+
+    /* Statue of Liberty Postage Stamp (Top Right) */
+    .postage-stamp {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      width: 70px;
+      height: 85px;
+      background: #f4e8d8;
+      border: 3px dashed #baaa95;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 1px 2px 6px rgba(0,0,0,0.25);
+      transform: rotate(3deg);
+      user-select: none;
+      z-index: 2;
+    }
+
+    .stamp-header {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: #7a6b58;
+      letter-spacing: 0.1em;
+    }
+
+    .stamp-art {
+      font-size: 1.8rem;
+      line-height: 1;
+      opacity: 0.75;
+    }
+
+    .stamp-footer {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 800;
+      color: #5c4e3c;
+    }
+
+    /* Postal Wavy Cancellation Lines over stamp */
+    .postmark-wavy-lines {
+      position: absolute;
+      top: 24px;
+      right: 65px;
+      width: 75px;
+      height: 45px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0 4px,
+        rgba(50, 40, 60, 0.35) 4px 6px
+      );
+      transform: rotate(-10deg);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Sponsor Logo inside Envelope */
+    .envelope-logo-area {
+      position: relative;
+      z-index: 4;
+      width: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .envelope-logo-img {
+      max-width: 90%;
+      max-height: 100px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    }
+
+    .envelope-brand-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: #111111;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(255, 100, 100, 0.3);
+    }
+
+    .envelope-brand-title span.live-badge {
+      font-size: 0.8rem;
+      vertical-align: super;
+      background: #000;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 4px;
     }
 
     /* =====================================================
-       CENTER TITLE — "2026 SPONSORS"
+       SECTION DIVIDER TITLE — "OTHER SPONSORS & PARTNERS"
        ===================================================== */
 
-    .sp-center-title {
+    .sp-marquee-header {
       text-align: center;
-      padding: 48px 20px 40px;
-      position: relative;
+      margin: 40px 0 32px;
     }
 
-    .sp-center-title h1 {
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
-      line-height: 1;
-    }
-
-    .sp-year {
-      display: inline-block;
-      background: var(--nav-glow);
-      color: #fff;
-      font-family: 'Bangers', cursive;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      padding: 6px 16px;
-      border-radius: 6px;
-      letter-spacing: 0.04em;
-    }
-
-    .sp-word {
-      display: inline-block;
-      background: #111;
-      color: #fff;
-      font-family: 'Bangers', cursive;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      padding: 6px 22px;
-      border-radius: 6px;
-      margin-left: 8px;
+    .sp-marquee-header h2 {
+      font-family: 'Rye', cursive;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      color: var(--gold);
       letter-spacing: 0.08em;
-      border: 2px solid rgba(255,255,255,0.15);
+      text-transform: uppercase;
+      text-shadow: 0 0 20px rgba(255, 210, 122, 0.35);
     }
 
-    .sp-subtitle {
-      margin-top: 14px;
-      font-family: 'Rock Salt', cursive;
-      font-size: clamp(0.65rem, 1.5vw, 0.9rem);
-      color: rgba(200,180,255,0.55);
-      letter-spacing: 0.06em;
-    }
-
-    /* speech bubbles */
-    .bubble {
-      position: absolute;
-      background: #fff;
-      color: #111;
-      font-family: 'Bangers', cursive;
-      font-size: 0.68rem;
+    .sp-marquee-header p {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      color: rgba(232, 213, 255, 0.65);
+      margin-top: 6px;
       letter-spacing: 0.04em;
-      padding: 6px 14px;
-      border-radius: 14px;
-      border: 2px solid #333;
+    }
+
+    /* =====================================================
+       BOTTOM MARQUEE — 2-3 CM HEIGHT (~85PX), VARIETY OF POLYGONS
+       ===================================================== */
+
+    .marquee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .mq-row {
+      overflow: hidden;
+      width: 100%;
       white-space: nowrap;
     }
 
-    .bubble::after {
-      content: '';
-      position: absolute;
-      width: 0; height: 0;
-      border: 8px solid transparent;
-    }
-
-    .bubble--left {
-      left: 2%;
-      top: 40%;
-    }
-
-    .bubble--left::after {
-      bottom: -14px;
-      left: 16px;
-      border-top-color: #fff;
-    }
-
-    .bubble--right {
-      right: 2%;
-      top: 36%;
-    }
-
-    .bubble--right::after {
-      bottom: -14px;
-      right: 16px;
-      border-top-color: #fff;
-    }
-
-    /* =====================================================
-       BOTTOM MARQUEE ROWS — Partner / associate logos
-       ===================================================== */
-
-    .marquee-section {
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
     .mq-track {
-      display: flex;
-      gap: 14px;
-      width: max-content;
-      padding: 6px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      animation-duration: 38s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
 
-    .mq-track--ltr { animation: mq-ltr 40s linear infinite; }
-    .mq-track--rtl { animation: mq-rtl 36s linear infinite; }
+    .mq-track--left { animation-name: mq-scroll-left; }
+    .mq-track--right { animation-name: mq-scroll-right; }
 
     .mq-track:hover { animation-play-state: paused; }
 
-    @keyframes mq-ltr {
+    @keyframes mq-scroll-left {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    @keyframes mq-rtl {
+    @keyframes mq-scroll-right {
       0%   { transform: translateX(-50%); }
       100% { transform: translateX(0); }
     }
 
-    /* marquee card */
-    .mq-card {
+    /* Polygon Cards: Height ~110px (~3.5 cm) with varying widths & flat-base shapes */
+    .mq-poly-card {
       flex-shrink: 0;
-      width: 150px;
-      height: 80px;
-      border-radius: 0;
-      border: 2px solid rgba(176,108,255,0.25);
-      background:
-        radial-gradient(circle at 50% 50%, rgba(50,20,100,0.7) 0%, rgba(14,10,40,0.95) 80%);
+      height: 110px; /* Increased height ~3.5 cm */
+      background: radial-gradient(circle at 50% 50%, rgba(45, 20, 85, 0.95) 0%, rgba(13, 7, 30, 0.98) 85%);
+      border: 2px solid rgba(176, 108, 255, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.25s, box-shadow 0.25s;
+      padding: 12px 20px;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
     }
 
-    .mq-card:hover {
-      border-color: rgba(255,210,122,0.6);
-      box-shadow: 0 0 14px rgba(255,210,122,0.2);
+    .mq-poly-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 18px rgba(255, 210, 122, 0.4);
+      transform: scale(1.04);
     }
 
-    .mq-card .logo-area {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      padding: 10px;
+    /* Flat-base Quadrilateral Shapes (base on X-axis) */
+    .poly-rectangle     { width: 210px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .poly-square        { width: 110px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .poly-para-right    { width: 190px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); }
+    .poly-para-left     { width: 190px; clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%); }
+    .poly-trapezium     { width: 210px; clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%); }
+    .poly-trap-top      { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 88% 100%, 12% 100%); }
+
+    .mq-poly-card .brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
     }
 
-    .mq-card .logo-area img {
-      max-width: 100%;
-      max-height: 100%;
+    .mq-poly-card img {
+      max-width: 85%;
+      max-height: 60px;
       object-fit: contain;
     }
 
-    /* ── Varied polygon shapes — marquee cards ── */
-    .mq-rect       { width: 170px; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-    .mq-square     { width: 80px;  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-    .mq-para-r     { width: 160px; clip-path: polygon(14% 0%, 100% 0%, 86% 100%, 0% 100%); }
-    .mq-para-l     { width: 160px; clip-path: polygon(0% 0%, 86% 0%, 100% 100%, 14% 100%); }
-    .mq-trap-wide  { width: 200px; clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%); }
-    .mq-trap-top   { width: 180px; clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%); }
-    .mq-rhombus    { width: 90px;  height: 90px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-    .mq-penta      { width: 150px; clip-path: polygon(6% 0%, 94% 0%, 100% 55%, 80% 100%, 20% 100%, 0% 55%); height: 90px; }
-
     /* =====================================================
-       BOTTOM NOTE
+       RESPONSIVE BREAKPOINTS
        ===================================================== */
 
-    .sp-bottom-note {
-      text-align: right;
-      margin-top: 24px;
-      padding-right: 8px;
+    @media (max-width: 900px) {
+      .z-sponsor-row,
+      .z-sponsor-row.reverse {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .envelope-card-wrap {
+        width: 100%;
+        max-width: 440px;
+      }
+      .sp-vintage-official, .sp-vintage-role {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+      }
     }
 
-    .sp-bottom-note span {
-      display: inline-block;
-      background: var(--gold);
-      color: #111;
-      font-family: 'Bangers', cursive;
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      padding: 4px 14px;
-      border-radius: 4px;
-      border: 2px solid rgba(0,0,0,0.15);
-    }
-
-    /* =====================================================
-       RESPONSIVE
-       ===================================================== */
-
-    @media (max-width: 768px) {
-      .sp-main { padding: 28px 10px 40px; }
-      .ts-card { width: 150px; height: 95px; }
-      .ts-card .logo-area { width: 48px; height: 40px; font-size: 1.6rem; }
-      .mq-card { width: 120px; height: 68px; }
-      .bubble { font-size: 0.55rem; padding: 4px 10px; }
-    }
-
-    @media (max-width: 480px) {
-      .ts-card { width: 130px; height: 85px; }
-      .mq-card { width: 100px; height: 58px; }
-      .sp-center-title { padding: 32px 12px 28px; }
-      .bubble { display: none; }
+    @media (max-width: 540px) {
+      .sp-main { padding: 10px 16px 60px; }
+      .envelope-card { padding: 16px; border-width: 10px; }
+      .postmark-circle { width: 80px; height: 80px; font-size: 0.52rem; }
+      .postage-stamp { width: 55px; height: 70px; }
+      .mq-poly-card { height: 70px; }
     }
   </style>
 </head>
@@ -352,70 +476,244 @@
         <a href="index.html" class="nav-brand" aria-label="Aarohi Home">
           <img src="assets/logo-hogo/Aarohi Hobo BW Final.png" alt="Aarohi" class="nav-logo">
         </a>
+
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="sponsors.html" class="active">Sponsors</a></li>
           <li><a href="merch.html">Merch</a></li>
         </ul>
+
         <a href="passes.html" class="nav-buy-passes">BUY PASSES</a>
+
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
       </nav>
     </header>
 
+    <!-- ===== PAGE HEADER BANNER ===== -->
+    <div class="sp-header-banner">
+      <img src="assets/logo-hogo/logo.png" alt="Aarohi 26" class="sp-header-logo">
+      <div class="sp-header-dates">
+        23 OCT &bull; 24 OCT &bull; 25 OCT
+      </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
     <main class="sp-main">
 
-      <!-- ===== ROW 1: TITLE SPONSORS ===== -->
-      <section class="title-section">
-        <div class="title-row" id="title-row-1"></div>
+      <!-- =====================================================
+           MAIN SPONSORS — Z-LAYOUT ALTERNATING PATTERN (3-4 BRANDS)
+           ===================================================== -->
+      <section class="z-sponsor-container">
+
+        <!-- BRAND 1: ULTRAVIOLETTE (TITLE SPONSOR) -->
+        <div class="z-sponsor-row theme-pink">
+          <div class="z-sponsor-text">
+            <h1 class="sp-vintage-official">OFFICIAL</h1>
+            <h2 class="sp-vintage-role">TITLE SPONSOR</h2>
+          </div>
+
+          <div class="envelope-card-wrap">
+            <div class="envelope-card" aria-label="Ultraviolette - Official Title Sponsor">
+              <!-- Watermarks & Postage Stamp -->
+              <div class="postmark-circle postmark-circle--top-left">
+                <span>AAROHI 26</span>
+                <span>VIVA VEGAS</span>
+              </div>
+              <div class="postmark-wavy-lines"></div>
+              <div class="postage-stamp">
+                <span class="stamp-header">US 10¢</span>
+                <span class="stamp-art">🗽</span>
+                <span class="stamp-footer">AIR MAIL</span>
+              </div>
+              <div class="postmark-circle postmark-circle--bottom-right">
+                <span>OFFICIAL</span>
+                <span>SPONSOR</span>
+              </div>
+
+              <!-- Sponsor Brand Logo/Name -->
+              <div class="envelope-logo-area">
+                <div class="envelope-brand-title">
+                  <span style="letter-spacing: 0.12em;">ULTRAVIOLETTE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRAND 2: COSANESTRA LIVE (FESTIVAL SPONSOR) — REVERSE Z-LAYOUT -->
+        <div class="z-sponsor-row reverse theme-yellow">
+          <div class="z-sponsor-text">
+            <h1 class="sp-vintage-official">OFFICIAL</h1>
+            <h2 class="sp-vintage-role">FESTIVAL SPONSOR</h2>
+          </div>
+
+          <div class="envelope-card-wrap">
+            <div class="envelope-card" aria-label="CosaNostra Live - Official Festival Sponsor">
+              <!-- Watermarks & Postage Stamp -->
+              <div class="postmark-circle postmark-circle--top-left">
+                <span>VIVA VEGAS</span>
+                <span>AAROHI 26</span>
+              </div>
+              <div class="postmark-wavy-lines"></div>
+              <div class="postage-stamp">
+                <span class="stamp-header">US 10¢</span>
+                <span class="stamp-art">🗽</span>
+                <span class="stamp-footer">AIR MAIL</span>
+              </div>
+              <div class="postmark-circle postmark-circle--bottom-right">
+                <span>OFFICIAL</span>
+                <span>SPONSOR</span>
+              </div>
+
+              <!-- Sponsor Brand Logo/Name -->
+              <div class="envelope-logo-area">
+                <div class="envelope-brand-title">
+                  CosaNostra <span class="live-badge">LIVE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRAND 3: RED BULL / HINDKUSH (POWERED BY SPONSOR) -->
+        <div class="z-sponsor-row theme-purple">
+          <div class="z-sponsor-text">
+            <h1 class="sp-vintage-official">OFFICIAL</h1>
+            <h2 class="sp-vintage-role">POWERED BY</h2>
+          </div>
+
+          <div class="envelope-card-wrap">
+            <div class="envelope-card" aria-label="Hindkush - Powered By Sponsor">
+              <!-- Watermarks & Postage Stamp -->
+              <div class="postmark-circle postmark-circle--top-left">
+                <span>AAROHI 26</span>
+                <span>VNIT NAGPUR</span>
+              </div>
+              <div class="postmark-wavy-lines"></div>
+              <div class="postage-stamp">
+                <span class="stamp-header">US 10¢</span>
+                <span class="stamp-art">🗽</span>
+                <span class="stamp-footer">AIR MAIL</span>
+              </div>
+              <div class="postmark-circle postmark-circle--bottom-right">
+                <span>POWERED</span>
+                <span>BY</span>
+              </div>
+
+              <!-- Sponsor Brand Logo/Name -->
+              <div class="envelope-logo-area">
+                <div class="envelope-brand-title">
+                  HINDKUSH
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRAND 4: UNION BANK (ASSOCIATE SPONSOR) — REVERSE Z-LAYOUT -->
+        <div class="z-sponsor-row reverse theme-cyan">
+          <div class="z-sponsor-text">
+            <h1 class="sp-vintage-official">OFFICIAL</h1>
+            <h2 class="sp-vintage-role">ASSOCIATE SPONSOR</h2>
+          </div>
+
+          <div class="envelope-card-wrap">
+            <div class="envelope-card" aria-label="Union Bank of India - Associate Title Sponsor">
+              <!-- Watermarks & Postage Stamp -->
+              <div class="postmark-circle postmark-circle--top-left">
+                <span>AAROHI 26</span>
+                <span>OFFICIAL</span>
+              </div>
+              <div class="postmark-wavy-lines"></div>
+              <div class="postage-stamp">
+                <span class="stamp-header">US 10¢</span>
+                <span class="stamp-art">🗽</span>
+                <span class="stamp-footer">AIR MAIL</span>
+              </div>
+              <div class="postmark-circle postmark-circle--bottom-right">
+                <span>ASSOCIATE</span>
+                <span>SPONSOR</span>
+              </div>
+
+              <!-- Sponsor Brand Logo/Name -->
+              <div class="envelope-logo-area">
+                <div class="envelope-brand-title">
+                  UNION BANK
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
-      <!-- ===== ROW 2: MORE TITLE/ASSOCIATE SPONSORS ===== -->
-      <section class="title-section">
-        <div class="title-row" id="title-row-2"></div>
-      </section>
-
-      <!-- ===== CENTER TITLE ===== -->
-      <div class="sp-center-title">
-        <div class="bubble bubble--left">Aarohi is powered by heroes...</div>
-        <h1>
-          <span class="sp-year">2026</span>
-          <span class="sp-word">SPONSORS</span>
-        </h1>
-        <p class="sp-subtitle">Sponsors Assemble !</p>
-        <div class="bubble bubble--right">Bro... did you register yet?</div>
+      <!-- =====================================================
+           MARQUEE DIVIDER HEADER
+           ===================================================== -->
+      <div class="sp-marquee-header">
+        <h2>ASSOCIATE PARTNERS & BRANDS</h2>
+        <p>Supporting the spirit and energy of Central India's largest cultural fest</p>
       </div>
 
-      <!-- ===== MARQUEE ROW 1 (left to right) ===== -->
-      <section class="marquee-section">
-        <div class="mq-track mq-track--ltr" id="mq-row-1"></div>
-      </section>
+      <!-- =====================================================
+           TWO LINE MARQUEE AT BOTTOM (2-3 CM HEIGHT, VARIETY OF POLYGONS)
+           ===================================================== -->
+      <div class="marquee-wrapper">
+        
+        <!-- LINE 1: MOVING RIGHT TO LEFT -->
+        <div class="mq-row">
+          <div class="mq-track mq-track--left" id="mq-line-1">
+            <!-- Dynamically populated via JS for smooth infinite looping -->
+          </div>
+        </div>
 
-      <!-- ===== MARQUEE ROW 2 (right to left) ===== -->
-      <section class="marquee-section">
-        <div class="mq-track mq-track--rtl" id="mq-row-2"></div>
-      </section>
+        <!-- LINE 2: MOVING LEFT TO RIGHT -->
+        <div class="mq-row">
+          <div class="mq-track mq-track--right" id="mq-line-2">
+            <!-- Dynamically populated via JS for smooth infinite looping -->
+          </div>
+        </div>
 
-      <!-- ===== BOTTOM NOTE ===== -->
-      <div class="sp-bottom-note">
-        <span>And funded by icons....</span>
       </div>
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer merch-footer">
+    <!-- ===== FOOTER (COMPACT BLACK CONTACT SECTION) ===== -->
+    <footer class="footer footer--compact" id="contact">
       <div class="footer-inner">
-        <p>&copy; 2026 Aarohi, VNIT Nagpur. All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="merch.html">Merch</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <!-- BRAND -->
+        <div class="footer-left-brand">
+          <a href="index.html" aria-label="Aarohi Home">
+            <img src="assets/logo-hogo/Aarohi Hobo BW Final.png" alt="Aarohi" class="footer-brand-logo">
+          </a>
+          <span class="footer-brand-name">VIBELORE</span>
+        </div>
+
+        <!-- COMMITTEE CONTACT DETAILS (No names) -->
+        <div class="footer-contact-row">
+          <div class="contact-chip">
+            <span class="contact-chip-role">Head Coordinator</span>
+            <a href="tel:+919876543210" class="contact-chip-detail">📞 +91 98765 43210</a>
+            <a href="mailto:head.aarohi26@gmail.com" class="contact-chip-detail">✉️ head.aarohi26@gmail.com</a>
+          </div>
+
+          <div class="contact-chip">
+            <span class="contact-chip-role">PR & Sponsorship</span>
+            <a href="tel:+919823456789" class="contact-chip-detail">📞 +91 98234 56789</a>
+            <a href="mailto:sponsorship.aarohi@gmail.com" class="contact-chip-detail">✉️ sponsorship.aarohi@gmail.com</a>
+          </div>
+
+          <div class="contact-chip">
+            <span class="contact-chip-role">Event Management</span>
+            <a href="tel:+919712345678" class="contact-chip-detail">📞 +91 97123 45678</a>
+            <a href="mailto:events.aarohi26@gmail.com" class="contact-chip-detail">✉️ events.aarohi26@gmail.com</a>
+          </div>
+        </div>
       </div>
+      <p class="footer-bottom">&copy; 2026 Aarohi, VNIT Nagpur. All rights reserved.</p>
     </footer>
 
   </div>
@@ -423,114 +721,54 @@
   <script src="js/script.js"></script>
   <script>
     /* =============================================================
-       SPONSOR DATA
-       logoImg: path to image (e.g. "assets/sponsors/axis.png")
-       logoEmoji: fallback emoji when no image
+       MARQUEE DATA & POLYGON SHAPE POPULATION
+       Height ~2.5 cm (85px), varying polygon shapes:
+       trapezium, rectangle, square, rhombus, parallelogram, pentagon, hexagon
        ============================================================= */
 
-    /* Row 1 — Title + Associate title sponsors */
-    const ROW1 = [
-      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Minus 2 Cents",    label: "TITLE SPONSOR",           labelClass: "" },
-      { logoEmoji: "\u26a1",    logoImg: "", name: "Sponsor 2",         label: "POWERED BY",             labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Hindkush",          label: "POWERED BY",             labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f355}", logoImg: "", name: "Divine Foods",      label: "POWERED BY",             labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Union Bank",        label: "ASSOCIATE TITLE SPONSOR", labelClass: "card-label--silver" },
-      { logoEmoji: "\u{1f3e6}", logoImg: "", name: "Minus 2 Cents",    label: "TITLE SPONSOR",           labelClass: "" },
-      { logoEmoji: "\u26a1",    logoImg: "", name: "Sponsor 2",         label: "POWERED BY",             labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Hindkush",          label: "POWERED BY",             labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f355}", logoImg: "", name: "Divine Foods",      label: "POWERED BY",             labelClass: "card-label--powered" }
+    const MARQUEE_BRANDS_LINE1 = [
+      { name: "Wonderla",      shape: "poly-trapezium" },
+      { name: "Dark Fantasy",  shape: "poly-rectangle" },
+      { name: "MyOP",          shape: "poly-square" },
+      { name: "Bingo!",        shape: "poly-para-right" },
+      { name: "Bharath Groups",shape: "poly-para-left" },
+      { name: "Green Trends",  shape: "poly-trap-top" },
+      { name: "Dawbu",         shape: "poly-rectangle" },
+      { name: "Stylz Studio",  shape: "poly-para-left" },
+      { name: "RECAL",         shape: "poly-trapezium" }
     ];
 
-    /* Row 2 — More sponsors */
-    const ROW2 = [
-      { logoEmoji: "\u{1f3d7}", logoImg: "", name: "Bharath Groups",    label: "SPONSOR",     labelClass: "card-label--silver" },
-      { logoEmoji: "\u{1f393}", logoImg: "", name: "RECAL",             label: "ALUMNI PARTNER", labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f354}", logoImg: "", name: "MyOP",              label: "SPONSOR",     labelClass: "card-label--silver" },
-      { logoEmoji: "\u2764",    logoImg: "", name: "Electrified By",    label: "POWERED BY",  labelClass: "card-label--powered" },
-      { logoEmoji: "\u{1f33f}", logoImg: "", name: "The Affordable",    label: "SPONSOR",     labelClass: "card-label--silver" },
-      { logoEmoji: "\u{1f48a}", logoImg: "", name: "Nua",               label: "SPONSOR",     labelClass: "card-label--silver" },
-      { logoEmoji: "\u{1f3d7}", logoImg: "", name: "Bharath Groups",    label: "SPONSOR",     labelClass: "card-label--silver" }
+    const MARQUEE_BRANDS_LINE2 = [
+      { name: "Coca-Cola",     shape: "poly-rectangle" },
+      { name: "Amul",          shape: "poly-square" },
+      { name: "Stock Edge",    shape: "poly-trapezium" },
+      { name: "Pureheart",     shape: "poly-para-left" },
+      { name: "Mani Mark",     shape: "poly-para-right" },
+      { name: "Nua",           shape: "poly-trap-top" },
+      { name: "Affordable",    shape: "poly-rectangle" },
+      { name: "Abani",         shape: "poly-square" },
+      { name: "Coin Sponsor",  shape: "poly-trapezium" }
     ];
 
-    /* Marquee Row 1 — left to right */
-    const MQ1 = [
-      { logoEmoji: "\u{1f3a2}", logoImg: "", name: "Wonderla" },
-      { logoEmoji: "\u{1f36b}", logoImg: "", name: "Dark Fantasy" },
-      { logoEmoji: "\u{1f36a}", logoImg: "", name: "Abani" },
-      { logoEmoji: "\u{1f382}", logoImg: "", name: "Bingo" },
-      { logoEmoji: "\u{1f33f}", logoImg: "", name: "Green Trends" },
-      { logoEmoji: "\u{1f534}", logoImg: "", name: "Dawbu" },
-      { logoEmoji: "\u2702",    logoImg: "", name: "Stylz" },
-      { logoEmoji: "\u{1f3a2}", logoImg: "", name: "Wonderla" },
-      { logoEmoji: "\u{1f36b}", logoImg: "", name: "Dark Fantasy" },
-      { logoEmoji: "\u{1f36a}", logoImg: "", name: "Abani" }
-    ];
-
-    /* Marquee Row 2 — right to left */
-    const MQ2 = [
-      { logoEmoji: "\u00a9",    logoImg: "", name: "Coin Sponsor" },
-      { logoEmoji: "\u{1f4e6}", logoImg: "", name: "Mani Mark" },
-      { logoEmoji: "\u{1f48e}", logoImg: "", name: "Dee" },
-      { logoEmoji: "\u{1f95b}", logoImg: "", name: "Amul" },
-      { logoEmoji: "\u{1f964}", logoImg: "", name: "Coca-Cola" },
-      { logoEmoji: "\u{1f4c8}", logoImg: "", name: "Stock Edge" },
-      { logoEmoji: "\u{1f49a}", logoImg: "", name: "Pureheart" },
-      { logoEmoji: "\u00a9",    logoImg: "", name: "Coin Sponsor" }
-    ];
-
-    /* ── Shape pools ── */
-    const TS_SHAPES = ['ts-rect','ts-square','ts-para-r','ts-para-l','ts-trap-wide','ts-trap-top','ts-rhombus','ts-penta'];
-    const MQ_SHAPES = ['mq-rect','mq-square','mq-para-r','mq-para-l','mq-trap-wide','mq-trap-top','mq-rhombus','mq-penta'];
-
-    /* ── Render title rows (static horizontal scroll) ── */
-    function buildTitleCard(s, idx) {
-      const shape = TS_SHAPES[idx % TS_SHAPES.length];
-      const div = document.createElement('div');
-      div.className = 'ts-card ' + shape;
-      div.setAttribute('aria-label', s.name);
-
-      const logoContent = s.logoImg
-        ? '<img src="' + s.logoImg + '" alt="' + s.name + '">'
-        : s.logoEmoji;
-
-      div.innerHTML =
-        '<div class="logo-area">' + logoContent + '</div>' +
-        '<span class="card-label ' + (s.labelClass || '') + '">' + s.label + '</span>';
-
-      return div;
+    function createPolyCard(brand) {
+      const card = document.createElement('div');
+      card.className = `mq-poly-card ${brand.shape}`;
+      card.setAttribute('aria-label', brand.name);
+      card.innerHTML = `<span class="brand-name">${brand.name}</span>`;
+      return card;
     }
 
-    function fillTitleRow(id, data) {
-      const row = document.getElementById(id);
-      data.forEach((s, i) => row.appendChild(buildTitleCard(s, i)));
+    function populateMarquee(elementId, brands) {
+      const track = document.getElementById(elementId);
+      // Double the array to guarantee seamless infinite CSS scroll loop
+      const doubled = [...brands, ...brands, ...brands];
+      doubled.forEach(brand => {
+        track.appendChild(createPolyCard(brand));
+      });
     }
 
-    fillTitleRow('title-row-1', ROW1);
-    fillTitleRow('title-row-2', ROW2);
-
-    /* ── Render marquee rows (doubled for loop) ── */
-    function buildMarqueeCard(s, idx) {
-      const shape = MQ_SHAPES[idx % MQ_SHAPES.length];
-      const div = document.createElement('div');
-      div.className = 'mq-card ' + shape;
-      div.setAttribute('aria-label', s.name);
-
-      const logoContent = s.logoImg
-        ? '<img src="' + s.logoImg + '" alt="' + s.name + '">'
-        : s.logoEmoji;
-
-      div.innerHTML = '<div class="logo-area">' + logoContent + '</div>';
-      return div;
-    }
-
-    function fillMarquee(id, data) {
-      const track = document.getElementById(id);
-      const doubled = [...data, ...data];
-      doubled.forEach((s, i) => track.appendChild(buildMarqueeCard(s, i)));
-    }
-
-    fillMarquee('mq-row-1', MQ1);
-    fillMarquee('mq-row-2', MQ2);
+    populateMarquee('mq-line-1', MARQUEE_BRANDS_LINE1);
+    populateMarquee('mq-line-2', MARQUEE_BRANDS_LINE2);
   </script>
 </body>
 </html>
