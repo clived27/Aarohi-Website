@@ -59,6 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Navbar scroll background transition (transparent at top, black on scroll)
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    const handleNavbarScroll = () => {
+      if (window.scrollY > 30) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+    handleNavbarScroll();
+  }
+
   document.querySelectorAll('.event-card').forEach((card) => {
     const registerLink = card.querySelector('.register-btn');
 

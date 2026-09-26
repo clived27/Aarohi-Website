@@ -143,7 +143,7 @@ body.passes-body {
   max-width: 540px;
   width: 100%;
   margin: 0 auto;
-  padding: 36px 16px 64px;
+  padding: 105px 16px 64px;
   display: flex;
   flex-direction: column;
 }
@@ -151,7 +151,7 @@ body.passes-body {
 /* Header Section */
 .passes-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .badge {
@@ -183,7 +183,7 @@ body.passes-body {
   color: rgba(255, 235, 245, 0.8);
   line-height: 1.5;
   max-width: 440px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 
 /* Matte Top Quick Action Capsule Button */
@@ -198,24 +198,26 @@ body.passes-body {
   gap: 8px;
   padding: 10px 24px;
   border-radius: 999px;
-  background: rgba(240, 135, 156, 0.08);
-  border: 1px solid rgba(255, 210, 122, 0.4);
-  color: var(--gold-primary);
+  background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
+  border: 1px solid transparent;
+  color: #0a0414;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: none;
 }
 
-.btn-hero-app:hover {
+.btn-hero-app:hover,
+.btn-hero-app:active,
+.btn-hero-app:focus {
   background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
   color: #0a0414;
   border-color: transparent;
-  transform: translateY(-1px);
+  transform: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
@@ -227,11 +229,6 @@ body.passes-body {
 .btn-svg-arrow {
   width: 14px;
   height: 14px;
-  transition: transform 0.2s ease;
-}
-
-.btn-hero-app:hover .btn-svg-arrow {
-  transform: translate(2px, -2px);
 }
 
 /* =========================================================
@@ -313,7 +310,7 @@ body.passes-body {
   margin-bottom: 14px;
 }
 
-/* Matte Sunset-Pink to Gold Gradient Capsule Button */
+/* Permanent Single-Color Sunset to Gold Capsule Button */
 .btn-primary-action {
   display: inline-flex;
   align-items: center;
@@ -323,7 +320,7 @@ body.passes-body {
   max-width: 360px;
   padding: 15px 30px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--pink-vibrant) 0%, var(--pink-deep) 35%, var(--gold-primary) 100%);
+  background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
   color: #0a0414;
   font-family: var(--font-heading);
   font-size: 0.88rem;
@@ -333,13 +330,16 @@ body.passes-body {
   text-decoration: none;
   border: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: none;
 }
 
-.btn-primary-action:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--pink-vibrant) 65%, var(--pink-deep) 100%);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+.btn-primary-action:hover,
+.btn-primary-action:active,
+.btn-primary-action:focus {
+  background: linear-gradient(135deg, var(--pink-vibrant), var(--gold-primary));
+  color: #0a0414;
+  transform: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .btn-arrow-right {
