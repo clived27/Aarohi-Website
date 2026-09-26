@@ -51,7 +51,7 @@
   </section>
 
   <!-- ===== COUNTDOWN TIMER ===== -->
-  <section class="countdown-section">
+  <section class="countdown-section reveal">
     <div class="countdown-inner">
 
       <h2 class="countdown-heading">38th Edition of Aarohi</h2>
@@ -92,7 +92,7 @@
   </section>
 
   <!-- ===== ABOUT STRIP ===== -->
-  <section class="about-strip" id="about">
+  <section class="about-strip reveal" id="about">
     <div class="about-inner">
       <h2>About Us.</h2>
       <p>Aarohi is the annual cultural fest at the college, offering a dynamic mix of music, dance, art, and creativity through competitions, performances, and workshops. It fosters community, cultural exchange, and provides a platform for students to showcase their talents.</p>
@@ -102,7 +102,7 @@
   </section>
 
   <!-- ===== ARTISTS ===== -->
-  <section class="artists-section" id="artists">
+  <section class="artists-section reveal" id="artists">
     <div class="artists-inner">
       <p class="artists-eyebrow">Performing Live</p>
       <h2 class="artists-heading">Artists</h2>
@@ -110,11 +110,10 @@
       <div class="artists-grid">
 
         <!-- Card 1 — Nikita Gandhi -->
-        <div class="artist-card" id="artistCard1">
+        <div class="artist-card reveal" id="artistCard1">
           <div class="artist-cover" onclick="revealArtist(this)">
             <div class="artist-cover-front">
               <img src="assets/queem.png" alt="Queen card" class="artist-card-template">
-              <span class="tap-text">Tap to reveal</span>
             </div>
             <div class="artist-cover-back">
               <img src="assets/nikita.jpg" alt="Nikita Gandhi" class="artist-img">
@@ -124,12 +123,17 @@
         </div>
 
         <!-- Card 2 — Coming Soon -->
-        <div class="artist-card" id="artistCard2">
+        <div class="artist-card reveal" id="artistCard2">
           <div class="artist-cover" onclick="revealArtist(this)">
             <div class="artist-cover-front">
               <img src="assets/joker.png" alt="Joker card" class="artist-card-template">
-              <span class="tap-text">Tap to reveal</span>
             </div>
+            <div class="artist-cover-back artist-cover-back--soon">
+              <span class="coming-soon-icon">&#9733;</span>
+              <span class="coming-soon-text">Coming Soon</span>
+            </div>
+          </div>
+        </div>
             <div class="artist-cover-back artist-cover-back--soon">
               <span class="coming-soon-icon">&#9733;</span>
               <span class="coming-soon-text">Coming Soon</span>
@@ -141,30 +145,56 @@
     </div>
   </section>
 
+  <!-- ===== FLASHBACK ===== -->
+  <section class="flashback-section reveal" id="flashback">
+    <div class="flashback-inner">
+      <h2 class="flashback-heading">Flashback</h2>
+      <div class="flashback-video-wrap">
+        <div class="flashback-player" id="flashbackPlayer">
+          <video
+            preload="metadata"
+            playsinline
+            class="flashback-video"
+            id="flashbackVideo"
+          >
+            <source src="assets/flashback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="flashback-play-btn" id="flashbackPlayBtn" aria-label="Play video">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="39" stroke="rgba(255,210,122,0.7)" stroke-width="1.5"/>
+              <polygon points="32,22 62,40 32,58" fill="#ffd27a"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FAQ ===== -->
-  <section class="faq-section" id="faq">
+  <section class="faq-section reveal" id="faq">
     <div class="faq-inner">
       <p class="faq-eyebrow">Need help?</p>
-      <h2 class="faq-heading">Faq</h2>
+      <h2 class="faq-heading">FAQ</h2>
       <p class="faq-subheading">Got questions about Aarohi? We've got you covered with answers to the most common queries!</p>
 
       <div class="faq-list">
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">What is Aarohi?</summary>
           <div class="faq-answer">
             <p>Aarohi is the annual cultural festival of Visvesvaraya National Institute of Technology (VNIT), Nagpur. It's one of the largest cultural fests in Central India, attracting students from various colleges across the country!</p>
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">When is Aarohi?</summary>
           <div class="faq-answer">
             <p>Aarohi takes place on 23–24–25 October, 2026. Stay tuned for details!</p>
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary class="faq-question">Is there an Entry Fee?</summary>
           <div class="faq-answer">
             <p>Passes are available for purchase. For more details or to buy a pass, please contact us directly!</p>
@@ -243,6 +273,35 @@
     function revealArtist(coverEl) {
       coverEl.classList.toggle('revealed');
     }
+
+    // Flashback video play button
+    const playBtn = document.getElementById('flashbackPlayBtn');
+    const video   = document.getElementById('flashbackVideo');
+    if (playBtn && video) {
+      playBtn.addEventListener('click', () => {
+        playBtn.classList.add('hidden');
+        video.controls = true;
+        video.play();
+      });
+      video.addEventListener('pause', () => {
+        playBtn.classList.remove('hidden');
+      });
+      video.addEventListener('ended', () => {
+        playBtn.classList.remove('hidden');
+      });
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

@@ -1623,14 +1623,14 @@ body.merch-body {
 }
 
 .faq-heading {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-heading);
+  font-weight: 700;
   font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  font-weight: 500;
   color: var(--gold);
   letter-spacing: 0.08em;
   line-height: 1;
   margin-bottom: 24px;
-  text-shadow: 0 0 20px rgba(255, 210, 122, 0.25);
+  text-shadow: 0 0 20px rgba(255, 210, 122, 0.3);
 }
 
 .faq-subheading {
@@ -1751,13 +1751,13 @@ body.merch-body {
 }
 
 .artists-heading {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-heading);
+  font-weight: 700;
   font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  font-weight: 500;
   color: var(--gold);
   letter-spacing: 0.08em;
   margin-bottom: 52px;
-  text-shadow: 0 0 20px rgba(255, 210, 122, 0.25);
+  text-shadow: 0 0 20px rgba(255, 210, 122, 0.3);
 }
 
 .artists-grid {
@@ -1903,4 +1903,104 @@ body.merch-body {
   .artist-card {
     width: 260px;
   }
+}
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for sibling items */
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* =========================================================
+   FLASHBACK SECTION
+   ========================================================= */
+
+.flashback-section {
+  background: rgba(13, 6, 24, 0.55);
+  padding: 90px 24px 80px;
+}
+
+.flashback-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.flashback-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px rgba(255, 210, 122, 0.3);
+}
+
+.flashback-video-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(176, 108, 255, 0.25);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(176, 108, 255, 0.1);
+}
+
+.flashback-player {
+  position: relative;
+  line-height: 0;
+}
+
+.flashback-video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+/* Custom play button overlay */
+.flashback-play-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 4, 20, 0.45);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+}
+
+.flashback-play-btn:hover {
+  background: rgba(10, 4, 20, 0.25);
+}
+
+.flashback-play-btn svg {
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 0 18px rgba(255, 210, 122, 0.6));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.flashback-play-btn:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 28px rgba(255, 210, 122, 0.9));
+}
+
+.flashback-play-btn.hidden {
+  display: none;
 }
