@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aarohi 26 — Official Sponsors</title>
-  <meta name="description" content="Official Sponsors of Aarohi 26 — Viva La Vida, VNIT Nagpur.">
+  <meta name="description" content="Official Sponsors of Aarohi 26 — Viva Vegas, VNIT Nagpur.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 
   <style>
     /* =====================================================
-       SPONSORS PAGE — Airmail Envelope & Vintage Western Theme
+       SPONSORS PAGE
        ===================================================== */
 
     body.sponsors-body {
@@ -55,18 +55,18 @@
     .sp-main {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 20px 24px 80px;
+      padding: 40px 24px 100px;
     }
 
     /* =====================================================
-       MAIN SPONSORS — Z-LAYOUT ALTERNATING PATTERN
+       Z-LAYOUT — alternating text + card rows
        ===================================================== */
 
     .z-sponsor-container {
       display: flex;
       flex-direction: column;
       gap: 64px;
-      margin-bottom: 90px;
+      margin-top: 20px;
     }
 
     .z-sponsor-row {
@@ -74,14 +74,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      position: relative;
     }
 
     .z-sponsor-row.reverse {
       flex-direction: row-reverse;
     }
 
-    /* Text block beside envelope */
+    /* Text side */
     .z-sponsor-text {
       flex: 1;
       display: flex;
@@ -109,55 +108,61 @@
       margin-top: 4px;
     }
 
-    /* Row Color Variants matching Screenshots */
     .theme-pink .sp-vintage-official,
-    .theme-pink .sp-vintage-role {
-      color: #f07b93;
-    }
+    .theme-pink .sp-vintage-role { color: #f07b93; }
 
     .theme-yellow .sp-vintage-official,
-    .theme-yellow .sp-vintage-role {
-      color: #ffd27a;
-    }
+    .theme-yellow .sp-vintage-role { color: #ffd27a; }
 
-    .theme-purple .sp-vintage-official,
-    .theme-purple .sp-vintage-role {
-      color: #c89eff;
-    }
-
-    .theme-cyan .sp-vintage-official,
-    .theme-cyan .sp-vintage-role {
-      color: #7de8f8;
-    }
-
-    /* =====================================================
-       ENVELOPE CARD PROFILE DESIGN (Exact match to Screenshots)
-       ===================================================== */
-
-    .envelope-card-wrap {
+    /* Card side wrapper */
+    .z-card-wrap {
       flex: 1.1;
       max-width: 540px;
       display: flex;
       justify-content: center;
     }
 
-    .envelope-card {
+    /* =====================================================
+       FLIP CARD — hover only (no touch/click flip)
+       ===================================================== */
+
+    .flip-card {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1.45 / 1;
+      perspective: 1200px;
+      cursor: default;
+    }
+
+    .flip-card-inner {
       position: relative;
       width: 100%;
-      aspect-ratio: 1.45 / 1;
-      background: #e8dbca; /* vintage airmail parchment */
-      border-radius: 6px;
-      box-shadow:
-        0 18px 40px rgba(0,0,0,0.7),
-        0 0 25px rgba(176,108,255,0.15);
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Flip triggered by JS .flipped class only — no CSS hover */
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      padding: 24px;
-      /* Airmail striped border using CSS border-image */
+    }
+
+    /* FRONT — airmail parchment */
+    .flip-card-front {
+      background: #e8dbca;
       border: 14px solid transparent;
       border-image: repeating-linear-gradient(
         -45deg,
@@ -166,17 +171,11 @@
         #2b4d90 26px 42px,
         #ffffff 42px 52px
       ) 18;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7), 0 0 25px rgba(176,108,255,0.15);
     }
 
-    .envelope-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow:
-        0 24px 50px rgba(0,0,0,0.8),
-        0 0 35px rgba(255,210,122,0.3);
-    }
-
-    /* Parchment inner texture */
-    .envelope-card::before {
+    /* Parchment texture overlay */
+    .flip-card-front::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -186,52 +185,13 @@
       pointer-events: none;
     }
 
-    /* Circular Postmarks / Watermarks */
-    .postmark-circle {
-      position: absolute;
-      width: 105px;
-      height: 105px;
-      border: 2px solid rgba(130, 45, 170, 0.4);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      color: rgba(130, 45, 170, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      pointer-events: none;
-      transform: rotate(-18deg);
-      user-select: none;
-    }
-
-    .postmark-circle::after {
-      content: '';
-      position: absolute;
-      inset: 4px;
-      border: 1px dashed rgba(130, 45, 170, 0.35);
-      border-radius: 50%;
-    }
-
-    .postmark-circle--top-left { top: 12px; left: 16px; }
-    .postmark-circle--bottom-right {
-      bottom: 12px;
-      right: 18px;
-      border-color: rgba(200, 50, 70, 0.4);
-      color: rgba(200, 50, 70, 0.5);
-      transform: rotate(14deg);
-    }
-
-    /* Statue of Liberty Postage Stamp (Top Right) */
-    .postage-stamp {
+    /* Postage stamp — top right */
+    .flip-stamp {
       position: absolute;
       top: 12px;
       right: 16px;
-      width: 70px;
-      height: 85px;
+      width: 66px;
+      height: 80px;
       background: #f4e8d8;
       border: 3px dashed #baaa95;
       padding: 4px;
@@ -241,77 +201,81 @@
       justify-content: space-between;
       box-shadow: 1px 2px 6px rgba(0,0,0,0.25);
       transform: rotate(3deg);
-      user-select: none;
       z-index: 2;
-    }
-
-    .stamp-header {
       font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      font-weight: 700;
-      color: #7a6b58;
-      letter-spacing: 0.1em;
+      user-select: none;
     }
 
-    .stamp-art {
-      font-size: 1.8rem;
-      line-height: 1;
-      opacity: 0.75;
-    }
+    .flip-stamp .s-hd { font-size: 0.52rem; font-weight: 700; color: #7a6b58; letter-spacing: 0.1em; }
+    .flip-stamp .s-art { font-size: 1.7rem; line-height: 1; opacity: 0.75; }
+    .flip-stamp .s-ft { font-size: 0.56rem; font-weight: 800; color: #5c4e3c; }
 
-    .stamp-footer {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      font-weight: 800;
-      color: #5c4e3c;
-    }
-
-    /* Postal Wavy Cancellation Lines over stamp */
-    .postmark-wavy-lines {
+    /* Wavy cancel lines over stamp */
+    .flip-cancel {
       position: absolute;
       top: 24px;
-      right: 65px;
-      width: 75px;
-      height: 45px;
+      right: 62px;
+      width: 70px;
+      height: 42px;
       background: repeating-linear-gradient(
         0deg,
         transparent 0 4px,
-        rgba(50, 40, 60, 0.35) 4px 6px
+        rgba(50,40,60,0.32) 4px 6px
       );
       transform: rotate(-10deg);
       pointer-events: none;
       z-index: 3;
     }
 
-    /* Sponsor Logo inside Envelope */
-    .envelope-logo-area {
-      position: relative;
-      z-index: 4;
-      width: 85%;
+    /* Postmark circle — bottom left */
+    .flip-postmark {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      width: 90px;
+      height: 90px;
+      border: 2px solid rgba(130,45,170,0.4);
+      border-radius: 50%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: rgba(130,45,170,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transform: rotate(-18deg);
+      pointer-events: none;
+      z-index: 2;
+      user-select: none;
     }
 
-    .envelope-logo-img {
-      max-width: 90%;
-      max-height: 100px;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    .flip-postmark::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px dashed rgba(130,45,170,0.35);
+      border-radius: 50%;
     }
 
-    .envelope-brand-title {
+    /* Brand name — centre */
+    .flip-brand {
+      position: relative;
+      z-index: 4;
       font-family: 'Cinzel', serif;
       font-weight: 900;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: #111111;
+      font-size: clamp(1.6rem, 3.8vw, 2.6rem);
+      color: #111;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      text-align: center;
+      padding: 0 24px;
     }
 
-    .envelope-brand-title span.live-badge {
-      font-size: 0.8rem;
+    .flip-brand .live-badge {
+      font-size: 0.72rem;
       vertical-align: super;
       background: #000;
       color: #fff;
@@ -320,119 +284,51 @@
       margin-left: 4px;
     }
 
-    /* =====================================================
-       SECTION DIVIDER TITLE — "OTHER SPONSORS & PARTNERS"
-       ===================================================== */
-
-    .sp-marquee-header {
-      text-align: center;
-      margin: 40px 0 32px;
-    }
-
-    .sp-marquee-header h2 {
-      font-family: 'Rye', cursive;
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .sp-marquee-header p {
+    /* "Flip to know more" hint — bottom right of front */
+    .flip-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 14px;
+      z-index: 5;
       font-family: 'Lora', serif;
-      font-size: 0.95rem;
-      color: rgba(232, 213, 255, 0.65);
-      margin-top: 6px;
+      font-size: 0.68rem;
+      font-style: italic;
+      color: rgba(80, 55, 30, 0.7);
+      letter-spacing: 0.03em;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* BACK — dark placeholder */
+    .flip-card-back {
+      background: linear-gradient(135deg, #0d0618 0%, #1a0a30 100%);
+      border: 1px solid rgba(176,108,255,0.3);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+      transform: rotateY(180deg);
+      flex-direction: column;
+      gap: 12px;
+      padding: 28px;
+    }
+
+    .flip-back-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .flip-back-soon {
+      font-family: 'Lora', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: rgba(232,213,255,0.5);
       letter-spacing: 0.04em;
     }
 
     /* =====================================================
-       BOTTOM MARQUEE — 2-3 CM HEIGHT (~85PX), VARIETY OF POLYGONS
-       ===================================================== */
-
-    .marquee-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      overflow: hidden;
-      padding: 10px 0;
-    }
-
-    .mq-row {
-      overflow: hidden;
-      width: 100%;
-      white-space: nowrap;
-    }
-
-    .mq-track {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      animation-duration: 38s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-
-    .mq-track--left { animation-name: mq-scroll-left; }
-    .mq-track--right { animation-name: mq-scroll-right; }
-
-    .mq-track:hover { animation-play-state: paused; }
-
-    @keyframes mq-scroll-left {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    @keyframes mq-scroll-right {
-      0%   { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
-    }
-
-    /* Polygon Cards: Height ~110px (~3.5 cm) with varying widths & flat-base shapes */
-    .mq-poly-card {
-      flex-shrink: 0;
-      height: 110px; /* Increased height ~3.5 cm */
-      background: radial-gradient(circle at 50% 50%, rgba(45, 20, 85, 0.95) 0%, rgba(13, 7, 30, 0.98) 85%);
-      border: 2px solid rgba(176, 108, 255, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-    }
-
-    .mq-poly-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 0 18px rgba(255, 210, 122, 0.4);
-      transform: scale(1.04);
-    }
-
-    /* Flat-base Quadrilateral Shapes (base on X-axis) */
-    .poly-rectangle     { width: 210px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    .poly-square        { width: 110px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    .poly-para-right    { width: 190px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); }
-    .poly-para-left     { width: 190px; clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%); }
-    .poly-trapezium     { width: 210px; clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%); }
-    .poly-trap-top      { width: 200px; clip-path: polygon(0% 0%, 100% 0%, 88% 100%, 12% 100%); }
-
-    .mq-poly-card .brand-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .mq-poly-card img {
-      max-width: 85%;
-      max-height: 60px;
-      object-fit: contain;
-    }
-
-    /* =====================================================
-       RESPONSIVE BREAKPOINTS
+       RESPONSIVE
        ===================================================== */
 
     @media (max-width: 900px) {
@@ -441,7 +337,7 @@
         flex-direction: column;
         gap: 24px;
       }
-      .envelope-card-wrap {
+      .z-card-wrap {
         width: 100%;
         max-width: 440px;
       }
@@ -452,10 +348,6 @@
 
     @media (max-width: 540px) {
       .sp-main { padding: 10px 16px 60px; }
-      .envelope-card { padding: 16px; border-width: 10px; }
-      .postmark-circle { width: 80px; height: 80px; font-size: 0.52rem; }
-      .postage-stamp { width: 55px; height: 70px; }
-      .mq-poly-card { height: 70px; }
     }
   </style>
 </head>
@@ -496,146 +388,75 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main class="sp-main">
 
-      <!-- =====================================================
-           MAIN SPONSORS — Z-LAYOUT ALTERNATING PATTERN (3-4 BRANDS)
-           ===================================================== -->
       <section class="z-sponsor-container">
 
-        <!-- BRAND 1: ULTRAVIOLETTE (TITLE SPONSOR) -->
+        <!-- TITLE SPONSOR -->
         <div class="z-sponsor-row theme-pink">
           <div class="z-sponsor-text">
             <h1 class="sp-vintage-official">OFFICIAL</h1>
             <h2 class="sp-vintage-role">TITLE SPONSOR</h2>
           </div>
 
-          <div class="envelope-card-wrap">
-            <div class="envelope-card" aria-label="Ultraviolette - Official Title Sponsor">
-              <!-- Watermarks & Postage Stamp -->
-              <div class="postmark-circle postmark-circle--top-left">
-                <span>AAROHI 26</span>
-                <span>VIVA VEGAS</span>
-              </div>
-              <div class="postmark-wavy-lines"></div>
-              <div class="postage-stamp">
-                <span class="stamp-header">US 10¢</span>
-                <span class="stamp-art">🗽</span>
-                <span class="stamp-footer">AIR MAIL</span>
-              </div>
-              <div class="postmark-circle postmark-circle--bottom-right">
-                <span>OFFICIAL</span>
-                <span>SPONSOR</span>
-              </div>
+          <div class="z-card-wrap">
+            <div class="flip-card" aria-label="Ultraviolette - hover to know more">
+              <div class="flip-card-inner">
 
-              <!-- Sponsor Brand Logo/Name -->
-              <div class="envelope-logo-area">
-                <div class="envelope-brand-title">
-                  <span style="letter-spacing: 0.12em;">ULTRAVIOLETTE</span>
+                <div class="flip-card-front">
+                  <div class="flip-cancel"></div>
+                  <div class="flip-stamp">
+                    <span class="s-hd">US 10¢</span>
+                    <span class="s-art">🗽</span>
+                    <span class="s-ft">AIR MAIL</span>
+                  </div>
+                  <div class="flip-postmark">
+                    <span>AAROHI 26</span>
+                    <span>VIVA VEGAS</span>
+                  </div>
+                  <div class="flip-brand">ULTRAVIOLETTE</div>
+                  <span class="flip-hint">Tap to know more &#8594;</span>
                 </div>
+
+                <div class="flip-card-back">
+                  <p class="flip-back-name">Ultraviolette</p>
+                  <p class="flip-back-soon">Info coming soon&hellip;</p>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
 
-        <!-- BRAND 2: COSANESTRA LIVE (FESTIVAL SPONSOR) — REVERSE Z-LAYOUT -->
+        <!-- FESTIVAL SPONSOR -->
         <div class="z-sponsor-row reverse theme-yellow">
           <div class="z-sponsor-text">
             <h1 class="sp-vintage-official">OFFICIAL</h1>
             <h2 class="sp-vintage-role">FESTIVAL SPONSOR</h2>
           </div>
 
-          <div class="envelope-card-wrap">
-            <div class="envelope-card" aria-label="CosaNostra Live - Official Festival Sponsor">
-              <!-- Watermarks & Postage Stamp -->
-              <div class="postmark-circle postmark-circle--top-left">
-                <span>VIVA VEGAS</span>
-                <span>AAROHI 26</span>
-              </div>
-              <div class="postmark-wavy-lines"></div>
-              <div class="postage-stamp">
-                <span class="stamp-header">US 10¢</span>
-                <span class="stamp-art">🗽</span>
-                <span class="stamp-footer">AIR MAIL</span>
-              </div>
-              <div class="postmark-circle postmark-circle--bottom-right">
-                <span>OFFICIAL</span>
-                <span>SPONSOR</span>
-              </div>
+          <div class="z-card-wrap">
+            <div class="flip-card" aria-label="CosaNostra Live - hover to know more">
+              <div class="flip-card-inner">
 
-              <!-- Sponsor Brand Logo/Name -->
-              <div class="envelope-logo-area">
-                <div class="envelope-brand-title">
-                  CosaNostra <span class="live-badge">LIVE</span>
+                <div class="flip-card-front">
+                  <div class="flip-cancel"></div>
+                  <div class="flip-stamp">
+                    <span class="s-hd">US 10¢</span>
+                    <span class="s-art">🗽</span>
+                    <span class="s-ft">AIR MAIL</span>
+                  </div>
+                  <div class="flip-postmark">
+                    <span>AAROHI 26</span>
+                    <span>VIVA VEGAS</span>
+                  </div>
+                  <div class="flip-brand">CosaNostra <span class="live-badge">LIVE</span></div>
+                  <span class="flip-hint">Tap to know more &#8594;</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- BRAND 3: RED BULL / HINDKUSH (POWERED BY SPONSOR) -->
-        <div class="z-sponsor-row theme-purple">
-          <div class="z-sponsor-text">
-            <h1 class="sp-vintage-official">OFFICIAL</h1>
-            <h2 class="sp-vintage-role">POWERED BY</h2>
-          </div>
-
-          <div class="envelope-card-wrap">
-            <div class="envelope-card" aria-label="Hindkush - Powered By Sponsor">
-              <!-- Watermarks & Postage Stamp -->
-              <div class="postmark-circle postmark-circle--top-left">
-                <span>AAROHI 26</span>
-                <span>VNIT NAGPUR</span>
-              </div>
-              <div class="postmark-wavy-lines"></div>
-              <div class="postage-stamp">
-                <span class="stamp-header">US 10¢</span>
-                <span class="stamp-art">🗽</span>
-                <span class="stamp-footer">AIR MAIL</span>
-              </div>
-              <div class="postmark-circle postmark-circle--bottom-right">
-                <span>POWERED</span>
-                <span>BY</span>
-              </div>
-
-              <!-- Sponsor Brand Logo/Name -->
-              <div class="envelope-logo-area">
-                <div class="envelope-brand-title">
-                  HINDKUSH
+                <div class="flip-card-back">
+                  <p class="flip-back-name">CosaNostra Live</p>
+                  <p class="flip-back-soon">Info coming soon&hellip;</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- BRAND 4: UNION BANK (ASSOCIATE SPONSOR) — REVERSE Z-LAYOUT -->
-        <div class="z-sponsor-row reverse theme-cyan">
-          <div class="z-sponsor-text">
-            <h1 class="sp-vintage-official">OFFICIAL</h1>
-            <h2 class="sp-vintage-role">ASSOCIATE SPONSOR</h2>
-          </div>
-
-          <div class="envelope-card-wrap">
-            <div class="envelope-card" aria-label="Union Bank of India - Associate Title Sponsor">
-              <!-- Watermarks & Postage Stamp -->
-              <div class="postmark-circle postmark-circle--top-left">
-                <span>AAROHI 26</span>
-                <span>OFFICIAL</span>
-              </div>
-              <div class="postmark-wavy-lines"></div>
-              <div class="postage-stamp">
-                <span class="stamp-header">US 10¢</span>
-                <span class="stamp-art">🗽</span>
-                <span class="stamp-footer">AIR MAIL</span>
-              </div>
-              <div class="postmark-circle postmark-circle--bottom-right">
-                <span>ASSOCIATE</span>
-                <span>SPONSOR</span>
-              </div>
-
-              <!-- Sponsor Brand Logo/Name -->
-              <div class="envelope-logo-area">
-                <div class="envelope-brand-title">
-                  UNION BANK
-                </div>
               </div>
             </div>
           </div>
@@ -643,67 +464,57 @@
 
       </section>
 
-      <!-- =====================================================
-           MARQUEE DIVIDER HEADER
-           ===================================================== -->
-      <div class="sp-marquee-header">
-        <h2>ASSOCIATE PARTNERS & BRANDS</h2>
-        <p>Supporting the spirit and energy of Central India's largest cultural fest</p>
-      </div>
-
-      <!-- =====================================================
-           TWO LINE MARQUEE AT BOTTOM (2-3 CM HEIGHT, VARIETY OF POLYGONS)
-           ===================================================== -->
-      <div class="marquee-wrapper">
-        
-        <!-- LINE 1: MOVING RIGHT TO LEFT -->
-        <div class="mq-row">
-          <div class="mq-track mq-track--left" id="mq-line-1">
-            <!-- Dynamically populated via JS for smooth infinite looping -->
-          </div>
-        </div>
-
-        <!-- LINE 2: MOVING LEFT TO RIGHT -->
-        <div class="mq-row">
-          <div class="mq-track mq-track--right" id="mq-line-2">
-            <!-- Dynamically populated via JS for smooth infinite looping -->
-          </div>
-        </div>
-
-      </div>
-
     </main>
 
-    <!-- ===== FOOTER (COMPACT BLACK CONTACT SECTION) ===== -->
-    <footer class="footer footer--compact" id="contact">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contact">
       <div class="footer-inner">
-        <!-- BRAND -->
-        <div class="footer-left-brand">
+
+        <!-- LEFT: brand + about -->
+        <div class="footer-left">
           <a href="index.html" aria-label="Aarohi Home">
             <img src="assets/logo-hogo/Aarohi Hobo BW Final.png" alt="Aarohi" class="footer-brand-logo">
           </a>
-          <span class="footer-brand-name">VIBELORE</span>
+          <p class="footer-brand-name">VIVA VEGAS</p>
+          <p class="footer-about">
+            Aarohi is the annual cultural festival of Visvesvaraya National Institute of Technology (VNIT), Nagpur.
+            It&rsquo;s one of the largest cultural fests in Central India, attracting students from various colleges across the country.
+            The event typically features a wide range of activities, including cultural competitions, workshops, guest lectures, concerts, and paper presentations.
+          </p>
         </div>
 
-        <!-- COMMITTEE CONTACT DETAILS (No names) -->
-        <div class="footer-contact-row">
-          <div class="contact-chip">
-            <span class="contact-chip-role">Head Coordinator</span>
-            <a href="tel:+919876543210" class="contact-chip-detail">📞 +91 98765 43210</a>
-            <a href="mailto:head.aarohi26@gmail.com" class="contact-chip-detail">✉️ head.aarohi26@gmail.com</a>
+        <!-- RIGHT: quick links, reach out, contact -->
+        <div class="footer-right">
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <p class="footer-col-title">Quick Links</p>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="sponsors.html">Sponsors</a></li>
+              <li><a href="merch.html">Merch</a></li>
+            </ul>
           </div>
 
-          <div class="contact-chip">
-            <span class="contact-chip-role">PR & Sponsorship</span>
-            <a href="tel:+919823456789" class="contact-chip-detail">📞 +91 98234 56789</a>
-            <a href="mailto:sponsorship.aarohi@gmail.com" class="contact-chip-detail">✉️ sponsorship.aarohi@gmail.com</a>
+          <!-- Reach Out -->
+          <div class="footer-col">
+            <p class="footer-col-title">Reach Out</p>
+            <address class="footer-address">
+              Visvesvaraya National Institute of Technology<br>
+              Nagpur<br>
+              South Ambazari Road,<br>
+              Nagpur, Maharashtra.
+            </address>
           </div>
 
-          <div class="contact-chip">
-            <span class="contact-chip-role">Event Management</span>
-            <a href="tel:+919712345678" class="contact-chip-detail">📞 +91 97123 45678</a>
-            <a href="mailto:events.aarohi26@gmail.com" class="contact-chip-detail">✉️ events.aarohi26@gmail.com</a>
+          <!-- Contact -->
+          <div class="footer-col">
+            <p class="footer-col-title">Contact</p>
+            <p class="footer-contact-simple">Rahul Sharma &mdash; +91 98765 43210</p>
+            <p class="footer-contact-simple">Priya Nair &mdash; +91 98234 56789</p>
           </div>
+
         </div>
       </div>
       <p class="footer-bottom">&copy; 2026 Aarohi, VNIT Nagpur. All rights reserved.</p>
@@ -713,55 +524,10 @@
 
   <script src="js/script.js"></script>
   <script>
-    /* =============================================================
-       MARQUEE DATA & POLYGON SHAPE POPULATION
-       Height ~2.5 cm (85px), varying polygon shapes:
-       trapezium, rectangle, square, rhombus, parallelogram, pentagon, hexagon
-       ============================================================= */
-
-    const MARQUEE_BRANDS_LINE1 = [
-      { name: "Wonderla",      shape: "poly-trapezium" },
-      { name: "Dark Fantasy",  shape: "poly-rectangle" },
-      { name: "MyOP",          shape: "poly-square" },
-      { name: "Bingo!",        shape: "poly-para-right" },
-      { name: "Bharath Groups",shape: "poly-para-left" },
-      { name: "Green Trends",  shape: "poly-trap-top" },
-      { name: "Dawbu",         shape: "poly-rectangle" },
-      { name: "Stylz Studio",  shape: "poly-para-left" },
-      { name: "RECAL",         shape: "poly-trapezium" }
-    ];
-
-    const MARQUEE_BRANDS_LINE2 = [
-      { name: "Coca-Cola",     shape: "poly-rectangle" },
-      { name: "Amul",          shape: "poly-square" },
-      { name: "Stock Edge",    shape: "poly-trapezium" },
-      { name: "Pureheart",     shape: "poly-para-left" },
-      { name: "Mani Mark",     shape: "poly-para-right" },
-      { name: "Nua",           shape: "poly-trap-top" },
-      { name: "Affordable",    shape: "poly-rectangle" },
-      { name: "Abani",         shape: "poly-square" },
-      { name: "Coin Sponsor",  shape: "poly-trapezium" }
-    ];
-
-    function createPolyCard(brand) {
-      const card = document.createElement('div');
-      card.className = `mq-poly-card ${brand.shape}`;
-      card.setAttribute('aria-label', brand.name);
-      card.innerHTML = `<span class="brand-name">${brand.name}</span>`;
-      return card;
-    }
-
-    function populateMarquee(elementId, brands) {
-      const track = document.getElementById(elementId);
-      // Double the array to guarantee seamless infinite CSS scroll loop
-      const doubled = [...brands, ...brands, ...brands];
-      doubled.forEach(brand => {
-        track.appendChild(createPolyCard(brand));
-      });
-    }
-
-    populateMarquee('mq-line-1', MARQUEE_BRANDS_LINE1);
-    populateMarquee('mq-line-2', MARQUEE_BRANDS_LINE2);
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
   </script>
 </body>
 </html>
