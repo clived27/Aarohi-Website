@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -39,47 +39,69 @@
       <p class="page-subtitle">Follow the step-by-step visual walkthrough to secure your pass on KqeeK</p>
     </section>
 
-    <!-- Vertical Scrolling Step-by-Step Images -->
-    <article class="steps-feed">
+    <!-- Swipeable Card Stack -->
+    <article class="card-stack-container">
       
-      <div class="step-card">
-        <img src="assets/compressed_tickets/100.jpg" data-png="100.png" onerror="this.onerror=null; this.src='assets/tickets/100.png'" alt="How to get concert passes guide" class="step-img" loading="eager">
+      <!-- Navigation Controls -->
+      <div class="card-nav">
+        <button class="card-nav-btn card-nav-prev" id="prevCard" aria-label="Previous step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+        <span class="card-counter" id="cardCounter">1 / 10</span>
+        
+        <button class="card-nav-btn card-nav-next" id="nextCard" aria-label="Next step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
       </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/200.jpg" data-png="200.png" onerror="this.onerror=null; this.src='assets/tickets/200.png'" alt="Step 1: Download KqeeK App" class="step-img" loading="lazy">
-      </div>
+      <!-- Card Stack -->
+      <div class="card-stack" id="cardStack">
+        
+        <div class="stack-card" data-index="0">
+          <img src="assets/compressed_tickets/100.jpg" onerror="this.onerror=null; this.src='assets/tickets/100.png'" alt="How to get concert passes guide" loading="eager">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/300.jpg" data-png="300.png" onerror="this.onerror=null; this.src='assets/tickets/300.png'" alt="Step 2: Create Account" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="1">
+          <img src="assets/compressed_tickets/200.jpg" onerror="this.onerror=null; this.src='assets/tickets/200.png'" alt="Step 1: Download KqeeK App" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/400.jpg" data-png="400.png" onerror="this.onerror=null; this.src='assets/tickets/400.png'" alt="Step 3: Complete Profile" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="2">
+          <img src="assets/compressed_tickets/300.jpg" onerror="this.onerror=null; this.src='assets/tickets/300.png'" alt="Step 2: Create Account" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/500.jpg" data-png="500.png" onerror="this.onerror=null; this.src='assets/tickets/500.png'" alt="Step 4: Click QR Scan" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="3">
+          <img src="assets/compressed_tickets/400.jpg" onerror="this.onerror=null; this.src='assets/tickets/400.png'" alt="Step 3: Complete Profile" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/600.jpg" data-png="600.png" onerror="this.onerror=null; this.src='assets/tickets/600.png'" alt="Step 5: Scan Aarohi QR" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="4">
+          <img src="assets/compressed_tickets/500.jpg" onerror="this.onerror=null; this.src='assets/tickets/500.png'" alt="Step 4: Click QR Scan" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/700.jpg" data-png="700.png" onerror="this.onerror=null; this.src='assets/tickets/700.png'" alt="Step 6: Select Phase" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="5">
+          <img src="assets/compressed_tickets/600.jpg" onerror="this.onerror=null; this.src='assets/tickets/600.png'" alt="Step 5: Scan Aarohi QR" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/800.jpg" data-png="800.png" onerror="this.onerror=null; this.src='assets/tickets/800.png'" alt="Step 7: Fill Form" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="6">
+          <img src="assets/compressed_tickets/700.jpg" onerror="this.onerror=null; this.src='assets/tickets/700.png'" alt="Step 6: Select Phase" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/900.jpg" data-png="900.png" onerror="this.onerror=null; this.src='assets/tickets/900.png'" alt="Step 8: Promo and Payment" class="step-img" loading="lazy">
-      </div>
+        <div class="stack-card" data-index="7">
+          <img src="assets/compressed_tickets/800.jpg" onerror="this.onerror=null; this.src='assets/tickets/800.png'" alt="Step 7: Fill Form" loading="lazy">
+        </div>
 
-      <div class="step-card">
-        <img src="assets/compressed_tickets/1000.jpg" data-png="1000.png" onerror="this.onerror=null; this.src='assets/tickets/1000.png'" alt="Step 9: Digital QR Pass" class="step-img" loading="lazy">
+        <div class="stack-card" data-index="8">
+          <img src="assets/compressed_tickets/900.jpg" onerror="this.onerror=null; this.src='assets/tickets/900.png'" alt="Step 8: Promo and Payment" loading="lazy">
+        </div>
+
+        <div class="stack-card" data-index="9">
+          <img src="assets/compressed_tickets/1000.jpg" onerror="this.onerror=null; this.src='assets/tickets/1000.png'" alt="Step 9: Digital QR Pass" loading="lazy">
+        </div>
+
       </div>
 
     </article>
@@ -162,6 +184,80 @@
     <p class="footer-bottom">&copy; 2026 Aarohi, VNIT Nagpur. All rights reserved.</p>
   </footer>
 
+
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.stack-card'));
+      const counter = document.getElementById('cardCounter');
+      const prevBtn = document.getElementById('prevCard');
+      const nextBtn = document.getElementById('nextCard');
+      const total = cards.length;
+      let current = 0; // index of the card on top
+
+      // Build initial stack: top card at front, rest stacked behind
+      function render() {
+        cards.forEach((card, i) => {
+          card.classList.remove('is-top', 'is-next', 'is-hidden', 'fly-left', 'fly-right');
+          const pos = i - current;
+          if (pos < 0) {
+            card.classList.add('is-hidden');
+          } else if (pos === 0) {
+            card.classList.add('is-top');
+          } else if (pos === 1) {
+            card.classList.add('is-next');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+        counter.textContent = (current + 1) + ' / ' + total;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+      }
+
+      function goNext() {
+        if (current >= total - 1) return;
+        const top = cards[current];
+        top.classList.add('fly-left');
+        top.addEventListener('animationend', () => {
+          top.classList.remove('fly-left');
+          current++;
+          render();
+        }, { once: true });
+      }
+
+      function goPrev() {
+        if (current <= 0) return;
+        current--;
+        const top = cards[current];
+        top.classList.add('fly-right-in');
+        top.addEventListener('animationend', () => {
+          top.classList.remove('fly-right-in');
+          render();
+        }, { once: true });
+      }
+
+      nextBtn.addEventListener('click', goNext);
+      prevBtn.addEventListener('click', goPrev);
+
+      // Tap on the top card = go next
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          if (card.classList.contains('is-top')) goNext();
+        });
+      });
+
+      // Touch swipe support
+      let touchStartX = 0;
+      const stack = document.getElementById('cardStack');
+      stack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      stack.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (dx < -40) goNext();
+        else if (dx > 40) goPrev();
+      });
+
+      render();
+    })();
+  </script>
 </body>
 </html>
-
