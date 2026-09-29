@@ -415,3 +415,207 @@ body.passes-body {
     letter-spacing: 0.08em;
   }
 }
+
+/* =========================================================
+   CARD STACK — swipe / tap interaction
+   ========================================================= */
+
+.card-stack-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 38px;
+}
+
+/* Navigation row */
+.card-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 210, 122, 0.1);
+  border: 1.5px solid rgba(255, 210, 122, 0.4);
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.card-nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 210, 122, 0.22);
+  transform: scale(1.08);
+}
+
+.card-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.card-counter {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold-warm);
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Stack area */
+.card-stack {
+  position: relative;
+  width: 100%;
+  /* height driven by the top card's natural size via aspect-ratio trick */
+  /* we give it a min-height and let the top card define the flow */
+}
+
+.stack-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-dark-card);
+  border: 1.5px solid var(--border-pink);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform, opacity;
+}
+
+.stack-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Top card — fully visible, interactive */
+.stack-card.is-top {
+  position: relative; /* takes up flow space to define container height */
+  z-index: 3;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.stack-card.is-top:hover {
+  transform: translateY(-3px) scale(1.005);
+}
+
+/* Second card peeking behind */
+.stack-card.is-next {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(10px) scale(0.97);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* All other cards hidden */
+.stack-card.is-hidden {
+  position: absolute;
+  z-index: 1;
+  transform: translateY(18px) scale(0.94);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Fly-off animation (next) */
+@keyframes flyLeft {
+  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+  60%  { transform: translateY(-40px) scale(1.04) rotate(-4deg); opacity: 1; }
+  100% { transform: translateY(-120px) translateX(60px) scale(0.9) rotate(-8deg); opacity: 0; }
+}
+
+/* Fly-in animation (prev) */
+@keyframes flyRightIn {
+  0%   { transform: translateY(-120px) translateX(60px) scale(0.9) rotate(-8deg); opacity: 0; }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+.stack-card.fly-left {
+  animation: flyLeft 0.42s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stack-card.fly-right-in {
+  animation: flyRightIn 0.38s cubic-bezier(0.2, 0, 0.4, 1) forwards;
+  z-index: 4;
+  pointer-events: none;
+  position: relative;
+}
+
+/* ── swipe animations (replaces old fly-left / fly-right-in) ── */
+
+/* Card flies off to the LEFT (swipe left = prev, or button next going left) */
+@keyframes flyOutLeft {
+  0%   { transform: translateX(0)    rotate(0deg);   opacity: 1; }
+  100% { transform: translateX(-110%) rotate(-14deg); opacity: 0; }
+}
+
+/* Card flies off to the RIGHT (swipe right = next) */
+@keyframes flyOutRight {
+  0%   { transform: translateX(0)    rotate(0deg);  opacity: 1; }
+  100% { transform: translateX(110%) rotate(14deg); opacity: 0; }
+}
+
+/* Card comes in from the RIGHT (undo — going back) */
+@keyframes flyInRight {
+  0%   { transform: translateX(110%) rotate(14deg); opacity: 0; }
+  100% { transform: translateX(0)    rotate(0deg);  opacity: 1; }
+}
+
+/* Card comes in from the LEFT (undo — going forward) */
+@keyframes flyInLeft {
+  0%   { transform: translateX(-110%) rotate(-14deg); opacity: 0; }
+  100% { transform: translateX(0)     rotate(0deg);   opacity: 1; }
+}
+
+.stack-card.fly-out-left {
+  animation: flyOutLeft 0.38s cubic-bezier(0.4, 0, 0.8, 1) forwards;
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stack-card.fly-out-right {
+  animation: flyOutRight 0.38s cubic-bezier(0.4, 0, 0.8, 1) forwards;
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stack-card.fly-in-right {
+  animation: flyInRight 0.36s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stack-card.fly-in-left {
+  animation: flyInLeft 0.36s cubic-bezier(0.2, 0, 0.3, 1) forwards;
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+}
