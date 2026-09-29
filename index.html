@@ -1,15 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aarohi 26 – Viva Vegas</title>
+  <link rel="icon" type="image/png" href="assets/logo-hogo/Aarohi Hobo BW Final.png">
+  <!-- Open Graph / link preview -->
+  <meta property="og:title" content="Aarohi '26 – Viva Vegas">
+  <meta property="og:description" content="The annual cultural festival of VNIT Nagpur. 23–25 October 2026.">
+  <meta property="og:image" content="assets/logo-hogo/logo.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/logo-hogo/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Rock+Salt&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ===== INTRO VIDEO OVERLAY ===== -->
+  <div class="intro-overlay" id="introOverlay">
+    <video
+      class="intro-video"
+      id="introVideo"
+      src="assets/intro.mp4"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+    <button class="intro-skip" id="introSkip">Skip &rsaquo;</button>
+  </div>
 
   <!-- ===== FULL-PAGE SCROLL BACKGROUNDS ===== -->
   <div class="bg-layer bg-front" id="bgFront" aria-hidden="true"></div>
@@ -255,6 +277,25 @@
 
   <script src="js/script.js"></script>
   <script>
+    // ── Intro video ──
+    const overlay   = document.getElementById('introOverlay');
+    const introVid  = document.getElementById('introVideo');
+    const skipBtn   = document.getElementById('introSkip');
+
+    function dismissIntro() {
+      sessionStorage.setItem('introSeen', '1');
+      overlay.classList.add('fade-out');
+      overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+    }
+
+    // If already seen this session, remove instantly
+    if (sessionStorage.getItem('introSeen')) {
+      overlay.remove();
+    } else {
+      introVid.addEventListener('ended', dismissIntro);
+      skipBtn.addEventListener('click', dismissIntro);
+      introVid.addEventListener('error', dismissIntro);
+    }
     function revealArtist(coverEl) {
       coverEl.classList.toggle('revealed');
     }
