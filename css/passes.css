@@ -217,7 +217,7 @@ body.passes-body {
 /* =========================================================
    BOTTOM ACTION SECTION
    ========================================================= */
-.passes-bottom-section { margin-top: 38px; }
+.passes-bottom-section { margin-bottom: 28px; }
 .action-card {
   background: linear-gradient(180deg, rgba(28,12,42,0.88) 0%, rgba(16,7,26,0.94) 100%);
   border: 1.5px solid rgba(255,210,122,0.35);
