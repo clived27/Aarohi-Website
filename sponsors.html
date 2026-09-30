@@ -274,24 +274,20 @@
     .flip-brand {
       position: relative;
       z-index: 4;
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      font-size: clamp(1.6rem, 3.8vw, 2.6rem);
-      color: #111;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0 24px;
     }
 
-    .flip-brand .live-badge {
-      font-size: 0.72rem;
-      vertical-align: super;
-      background: #000;
-      color: #fff;
-      padding: 2px 6px;
-      border-radius: 3px;
-      margin-left: 4px;
+    .sponsor-logo-img {
+      max-width: 75%;
+      max-height: 110px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
     }
 
     /* "Flip to know more" hint — bottom right of front */
@@ -422,7 +418,9 @@
                     <span>AAROHI 26</span>
                     <span>VIVA VEGAS</span>
                   </div>
-                  <div class="flip-brand">ULTRAVIOLETTE</div>
+                  <div class="flip-brand">
+                    <img src="assets/OFFICIAL TITLE SPONSOR.jpg" alt="Official Title Sponsor" class="sponsor-logo-img" />
+                  </div>
                   <span class="flip-hint">Tap to know more &#8594;</span>
                 </div>
 
@@ -458,7 +456,9 @@
                     <span>AAROHI 26</span>
                     <span>VIVA VEGAS</span>
                   </div>
-                  <div class="flip-brand">CosaNostra <span class="live-badge">LIVE</span></div>
+                  <div class="flip-brand">
+                    <img src="assets/OFFICIAL FESTIVAL PARTNER (1).jpg" alt="Official Festival Sponsor" class="sponsor-logo-img" />
+                  </div>
                   <span class="flip-hint">Tap to know more &#8594;</span>
                 </div>
 
