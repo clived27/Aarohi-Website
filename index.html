@@ -252,8 +252,8 @@
         <!-- Contact -->
         <div class="footer-col">
           <p class="footer-col-title">Contact</p>
-          <p class="footer-contact-simple">Deev Shah &mdash; +91 97377 85068</p>
-          <p class="footer-contact-simple">Rudra Agarwal &mdash; +91 93524 77416</p>
+          <p class="footer-contact-simple">Rahul Sharma &mdash; +91 98765 43210</p>
+          <p class="footer-contact-simple">Priya Nair &mdash; +91 98234 56789</p>
         </div>
 
       </div>
@@ -263,6 +263,30 @@
 
   <script src="js/script.js"></script>
   <script>
+    // ── Intro video ──
+    const overlay   = document.getElementById('introOverlay');
+    const introVid  = document.getElementById('introVideo');
+    const skipBtn   = document.getElementById('introSkip');
+
+    function dismissIntro() {
+      sessionStorage.setItem('introSeen', '1');
+      overlay.classList.add('fade-out');
+      overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+    }
+
+    // If already seen this session, remove instantly
+    if (sessionStorage.getItem('introSeen')) {
+      overlay.remove();
+    } else {
+      introVid.addEventListener('ended', dismissIntro);
+      skipBtn.addEventListener('click', dismissIntro);
+      // Only dismiss on error after 2s delay — avoids instant skip if video is slow to load
+      introVid.addEventListener('error', () => setTimeout(dismissIntro, 2000));
+      // Safety fallback: if video hasn't ended after 60s, dismiss anyway
+      const safetyTimer = setTimeout(dismissIntro, 60000);
+      introVid.addEventListener('ended', () => clearTimeout(safetyTimer));
+    }
+
     function revealArtist(coverEl) {
       coverEl.classList.toggle('revealed');
     }
