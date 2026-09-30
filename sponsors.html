@@ -92,27 +92,37 @@
     }
 
     .sp-vintage-official {
-      font-family: 'Sancreek', cursive;
+      font-family: 'Cinzel', serif;
       font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 700;
       line-height: 1.05;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      background: linear-gradient(90deg, #b06eff, #ffd27a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .sp-vintage-role {
-      font-family: 'Sancreek', cursive;
+      font-family: 'Cinzel', serif;
       font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
       line-height: 1.1;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-top: 4px;
+      background: linear-gradient(90deg, #b06eff, #ffd27a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .theme-pink .sp-vintage-official,
-    .theme-pink .sp-vintage-role { color: #f07b93; }
+    .theme-pink .sp-vintage-role { background: linear-gradient(90deg, #f07b93, #ffd27a); -webkit-background-clip: text; background-clip: text; }
 
     .theme-yellow .sp-vintage-official,
-    .theme-yellow .sp-vintage-role { color: #ffd27a; }
+    .theme-yellow .sp-vintage-role { background: linear-gradient(90deg, #ffd27a, #f07b93); -webkit-background-clip: text; background-clip: text; }
 
     /* Card side wrapper */
     .z-card-wrap {
