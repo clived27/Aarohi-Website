@@ -1248,6 +1248,44 @@ body.merch-body {
   color: rgba(255, 248, 238, 0.62);
 }
 
+.merch-product-desc strong {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* Contact block */
+.merch-contact {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.merch-contact-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.merch-contact p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 248, 238, 0.6);
+}
+
+.merch-contact a {
+  color: var(--nav-glow);
+  transition: color 0.2s ease;
+}
+
+.merch-contact a:hover {
+  color: var(--gold);
+}
+
 /* Size picker */
 .merch-size-group {
   display: flex;
