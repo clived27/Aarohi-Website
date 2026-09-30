@@ -19,20 +19,6 @@
 </head>
 <body>
 
-  <!-- ===== INTRO VIDEO OVERLAY ===== -->
-  <div class="intro-overlay" id="introOverlay">
-    <video
-      class="intro-video"
-      id="introVideo"
-      src="assets/intro.mp4"
-      autoplay
-      muted
-      playsinline
-      preload="auto"
-    ></video>
-    <button class="intro-skip" id="introSkip">Skip &rsaquo;</button>
-  </div>
-
   <!-- ===== FULL-PAGE SCROLL BACKGROUNDS ===== -->
   <div class="bg-layer bg-front" id="bgFront" aria-hidden="true"></div>
   <div class="bg-layer bg-back"  id="bgBack"  aria-hidden="true"></div>
@@ -277,43 +263,6 @@
 
   <script src="js/script.js"></script>
   <script>
-    // ── Intro video ──
-    const overlay  = document.getElementById('introOverlay');
-    const introVid = document.getElementById('introVideo');
-    const skipBtn  = document.getElementById('introSkip');
-
-    let dismissed = false;
-    function dismissIntro() {
-      if (dismissed) return;
-      dismissed = true;
-      sessionStorage.setItem('introSeen', '1');
-      overlay.classList.add('fade-out');
-      overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
-      // Safety: force remove after transition time even if event doesn't fire
-      setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 1200);
-    }
-
-    if (sessionStorage.getItem('introSeen')) {
-      overlay.remove();
-    } else {
-      introVid.addEventListener('ended', dismissIntro);
-      skipBtn.addEventListener('click', dismissIntro);
-      introVid.addEventListener('error', dismissIntro);
-
-      // Fallback: if video hasn't started playing within 4s, skip it
-      const stallTimeout = setTimeout(dismissIntro, 4000);
-      introVid.addEventListener('playing', () => {
-        clearTimeout(stallTimeout);
-        // New fallback: if video is playing but takes more than 30s total, force dismiss
-        setTimeout(dismissIntro, 32000);
-      }, { once: true });
-
-      // Try to play (needed for some browsers that need explicit call)
-      const playPromise = introVid.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => dismissIntro());
-      }
-    }
     function revealArtist(coverEl) {
       coverEl.classList.toggle('revealed');
     }
