@@ -2241,3 +2241,62 @@ body.merch-body {
   background: rgba(255, 255, 255, 0.22);
   color: #fff;
 }
+
+/* =========================================================
+   MOBILE FIX — Fixed background image stability
+   Targets all 4 root causes identified:
+   1. iOS dynamic viewport height (dvh)
+   2. backdrop-filter on page elements breaking fixed positioning
+   3. will-change: opacity causing GPU layer misalignment
+   4. Negative z-index repaint issues on mobile scroll
+   Only applies on screens <= 860px — desktop untouched.
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+  /* Fix 1 + 3 + 4: iOS vh, will-change, and z-index on bg layers */
+  .bg-layer {
+    /* Use dynamic viewport height so the layer fills the screen
+       even as browser chrome (address bar) shows/hides on iOS */
+    height: 100dvh;          /* dvh = dynamic vh, supported iOS 15.4+, Chrome 108+ */
+    height: -webkit-fill-available; /* fallback for older iOS Safari */
+    will-change: auto;       /* Remove will-change — prevents GPU layer misalignment */
+    z-index: 0;              /* Lift from -1; sections above use semi-transparent bg */
+  }
+
+  /* Keep sections above the bg layers */
+  .navbar,
+  .hero,
+  .countdown-section,
+  .about-strip,
+  .faq-section,
+  .footer,
+  .artist-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Fix 2: Remove backdrop-filter from ALL elements on mobile.
+     backdrop-filter creates a new stacking/compositing context that
+     breaks position:fixed on mobile browsers (Chrome Android, iOS Safari).
+     Visual effect is minimal — the dark semi-transparent bg still looks good. */
+  .cta-btn,
+  .event-card,
+  .merch-hero-cta,
+  .merch-card,
+  .merch-img-label,
+  .merch-order-section,
+  .tap-text,
+  .intro-skip,
+  .countdown-box,
+  .about-strip,
+  .faq-section,
+  .faq-item,
+  .artist-card,
+  .artist-card-inner,
+  .navbar.scrolled {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+}
