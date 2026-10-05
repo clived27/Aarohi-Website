@@ -2264,8 +2264,9 @@ body.merch-body {
     z-index: 0;              /* Lift from -1; sections above use semi-transparent bg */
   }
 
-  /* Keep sections above the bg layers */
-  .navbar,
+  /* Keep content sections above the bg layers (z-index: 0).
+     NOTE: .navbar is intentionally excluded — it is already
+     position:fixed + z-index:100 and must not be overridden. */
   .hero,
   .countdown-section,
   .about-strip,
